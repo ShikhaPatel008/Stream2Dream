@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Career Options After 12th Arts</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #fffaf5, #f5f2ff);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1d5190;
+      color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      color: #1d5190;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      margin: 0.5rem 0;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+
+    .lang-btn {
+      background: #1d5190;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px auto;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .lang-btn:hover {
+      background: #143a66;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="title">Best Career Options After 12th Arts</h1>
+    <p id="subtitle">Explore creative and professional paths in the Arts stream after 12th grade</p>
+  </header>
+
+  <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">हिंदी में देखें</button>
+
+  <div class="container" id="content"></div>
+
+  <script>
+    const data = {
+      en: {
+        title: "Best Career Options After 12th Arts",
+        subtitle: "Explore creative and professional paths in the Arts stream after 12th grade",
+        btn: "हिंदी में देखें",
+        cards: [
+          {
+            h2: "1. Bachelor of Arts (B.A.)",
+            p: "The Bachelor of Arts is a flexible degree offering subjects like Literature, Sociology, Political Science, Psychology and History. It develops communication, analytical and critical thinking skills for roles in education, public service and creative industries.",
+            c1: "Course Name: Bachelor of Arts (B.A.)",
+            c2: "Duration: 3 years",
+            c3: "Eligibility: 10+2 (any stream)",
+            c4: "Average Salary: ₹3–6 LPA",
+            c5: "Top Recruiters: Times Group, Accenture, Deloitte, NGOs"
+          },
+          {
+            h2: "2. Journalism and Mass Communication",
+            p: "This course trains students to work in the media industry—covering journalism, advertising, public relations and content creation. It builds storytelling and communication skills for dynamic media careers.",
+            c1: "Course Name: BA / B.J.M.C.",
+            c2: "Duration: 3 years",
+            c3: "Eligibility: 10+2 (any stream)",
+            c4: "Average Salary: ₹3–7 LPA",
+            c5: "Top Recruiters: NDTV, Times Now, Zee Media, The Hindu"
+          },
+          {
+            h2: "3. Fine Arts / Visual Arts",
+            p: "Fine Arts focuses on painting, sculpture, and digital art. Students learn creativity and technical artistry, preparing for careers in design, animation and multimedia.",
+            c1: "Course Name: BFA / BVA",
+            c2: "Duration: 4 years",
+            c3: "Eligibility: 10+2 (any stream)",
+            c4: "Average Salary: ₹3–8 LPA",
+            c5: "Top Recruiters: Pixar, Adobe, Design Studios, NID"
+          },
+          {
+            h2: "4. Law (LLB)",
+            p: "Law is a respected and challenging profession for those passionate about justice. It opens paths to become advocates, legal advisors or judges.",
+            c1: "Course Name: LLB / BA LLB (Hons)",
+            c2: "Duration: 3 years (LLB) / 5 years (BA LLB)",
+            c3: "Eligibility: Graduation / 10+2 + CLAT or LSAT",
+            c4: "Average Salary: ₹4–10 LPA",
+            c5: "Top Recruiters: Trilegal, High Courts, Law Firms"
+          },
+          {
+            h2: "5. Education (B.Ed)",
+            p: "B.Ed prepares students to become qualified teachers. It focuses on teaching skills, classroom management and child psychology.",
+            c1: "Course Name: Bachelor of Education (B.Ed)",
+            c2: "Duration: 2 years",
+            c3: "Eligibility: Graduation in any stream",
+            c4: "Average Salary: ₹3–6 LPA",
+            c5: "Top Recruiters: Kendriya Vidyalaya, DPS, Byju’s"
+          },
+          {
+            h2: "6. Performing Arts (Drama, Dance, Music)",
+            p: "Performing Arts nurtures creativity and expression through dance, theatre, and music. It offers exciting opportunities in entertainment and digital platforms.",
+            c1: "Course Name: Bachelor of Performing Arts (BPA)",
+            c2: "Duration: 3–4 years",
+            c3: "Eligibility: 10+2 (any stream)",
+            c4: "Average Salary: ₹3–8 LPA",
+            c5: "Top Recruiters: Film Houses, TV Channels, Music Studios"
+          },
+          {
+            h2: "7. Travel and Tourism Management",
+            p: "This course trains students for careers in hospitality, event planning, and tourism consultancy. Perfect for those who love travel and culture.",
+            c1: "Course Name: BBA / B.Sc in Travel & Tourism",
+            c2: "Duration: 3 years",
+            c3: "Eligibility: 10+2 (any stream)",
+            c4: "Average Salary: ₹3–7 LPA",
+            c5: "Top Recruiters: MakeMyTrip, Air India, Marriott, Taj Hotels"
+          },
+          {
+            h2: "8. Fashion Designing",
+            p: "Fashion Designing combines creativity with technical skills to create clothing and accessories. It offers global career opportunities and scope for entrepreneurship.",
+            c1: "Course Name: B.Des / B.Sc Fashion Designing",
+            c2: "Duration: 3–4 years",
+            c3: "Eligibility: 10+2 (any stream); NIFT/NID exams",
+            c4: "Average Salary: ₹4–9 LPA",
+            c5: "Top Recruiters: FabIndia, H&M, Zara, Raymond"
+          }
+        ]
+      },
+      hi: {
+        title: "12वीं के बाद आर्ट्स में सर्वश्रेष्ठ करियर विकल्प",
+        subtitle: "12वीं के बाद आर्ट्स स्ट्रीम में रचनात्मक और पेशेवर मार्गों की खोज करें",
+        btn: "View in English",
+        cards: [
+          {
+            h2: "1. बैचलर ऑफ आर्ट्स (B.A.)",
+            p: "बैचलर ऑफ आर्ट्स एक लचीला डिग्री कोर्स है जिसमें साहित्य, समाजशास्त्र, राजनीति विज्ञान, मनोविज्ञान और इतिहास जैसे विषय शामिल होते हैं। यह संचार, विश्लेषणात्मक और आलोचनात्मक सोच कौशल विकसित करता है।",
+            c1: "कोर्स का नाम: बैचलर ऑफ आर्ट्स (B.A.)",
+            c2: "अवधि: 3 वर्ष",
+            c3: "पात्रता: 10+2 (किसी भी स्ट्रीम से)",
+            c4: "औसत वेतन: ₹3–6 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: टाइम्स ग्रुप, एक्सेंचर, डेलॉइट, एनजीओ"
+          },
+          {
+            h2: "2. जर्नलिज़्म और मास कम्युनिकेशन",
+            p: "यह कोर्स छात्रों को मीडिया उद्योग में कार्य करने के लिए प्रशिक्षित करता है — पत्रकारिता, विज्ञापन, जनसंपर्क और कंटेंट क्रिएशन में। यह संचार और लेखन कौशल को मजबूत बनाता है।",
+            c1: "कोर्स का नाम: BA / B.J.M.C.",
+            c2: "अवधि: 3 वर्ष",
+            c3: "पात्रता: 10+2 (किसी भी स्ट्रीम से)",
+            c4: "औसत वेतन: ₹3–7 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: NDTV, टाइम्स नाउ, ज़ी मीडिया, द हिंदू"
+          },
+          {
+            h2: "3. फाइन आर्ट्स / विजुअल आर्ट्स",
+            p: "फाइन आर्ट्स में पेंटिंग, स्कल्प्चर और डिजिटल आर्ट शामिल हैं। यह रचनात्मकता और तकनीकी कौशल को बढ़ावा देता है, जिससे डिजाइन, एनीमेशन और मल्टीमीडिया में करियर बन सकता है।",
+            c1: "कोर्स का नाम: BFA / BVA",
+            c2: "अवधि: 4 वर्ष",
+            c3: "पात्रता: 10+2 (किसी भी स्ट्रीम से)",
+            c4: "औसत वेतन: ₹3–8 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: पिक्सर, एडोबी, डिजाइन स्टूडियो, NID"
+          },
+          {
+            h2: "4. लॉ (LLB)",
+            p: "कानून न्याय के प्रति जुनून रखने वालों के लिए एक सम्मानजनक और चुनौतीपूर्ण क्षेत्र है। इससे आप वकील, कानूनी सलाहकार या न्यायाधीश बन सकते हैं।",
+            c1: "कोर्स का नाम: LLB / BA LLB (Hons)",
+            c2: "अवधि: 3 वर्ष (LLB) / 5 वर्ष (BA LLB)",
+            c3: "पात्रता: स्नातक / 10+2 + CLAT या LSAT",
+            c4: "औसत वेतन: ₹4–10 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: ट्रिलिगल, हाई कोर्ट्स, लॉ फर्म्स"
+          },
+          {
+            h2: "5. एजुकेशन (B.Ed)",
+            p: "B.Ed छात्रों को योग्य शिक्षक बनने के लिए तैयार करता है। इसमें शिक्षण तकनीक, कक्षा प्रबंधन और बाल मनोविज्ञान पर ध्यान दिया जाता है।",
+            c1: "कोर्स का नाम: बैचलर ऑफ एजुकेशन (B.Ed)",
+            c2: "अवधि: 2 वर्ष",
+            c3: "पात्रता: किसी भी विषय में स्नातक",
+            c4: "औसत वेतन: ₹3–6 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: केंद्रीय विद्यालय, DPS, बायजूस"
+          },
+          {
+            h2: "6. परफॉर्मिंग आर्ट्स (नाटक, नृत्य, संगीत)",
+            p: "परफॉर्मिंग आर्ट्स छात्रों में रचनात्मकता और अभिव्यक्ति को बढ़ावा देता है। इसमें मनोरंजन और डिजिटल मीडिया में उत्कृष्ट अवसर उपलब्ध हैं।",
+            c1: "कोर्स का नाम: बैचलर ऑफ परफॉर्मिंग आर्ट्स (BPA)",
+            c2: "अवधि: 3–4 वर्ष",
+            c3: "पात्रता: 10+2 (किसी भी स्ट्रीम से)",
+            c4: "औसत वेतन: ₹3–8 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: फिल्म हाउस, टीवी चैनल, म्यूजिक स्टूडियो"
+          },
+          {
+            h2: "7. ट्रैवल एंड टूरिज्म मैनेजमेंट",
+            p: "यह कोर्स छात्रों को हॉस्पिटैलिटी, इवेंट प्लानिंग और पर्यटन क्षेत्र में करियर के लिए तैयार करता है। यह यात्रा और संस्कृति पसंद करने वालों के लिए आदर्श है।",
+            c1: "कोर्स का नाम: BBA / B.Sc इन ट्रैवल एंड टूरिज्म",
+            c2: "अवधि: 3 वर्ष",
+            c3: "पात्रता: 10+2 (किसी भी स्ट्रीम से)",
+            c4: "औसत वेतन: ₹3–7 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: मेक माई ट्रिप, एयर इंडिया, मैरियट, ताज होटल्स"
+          },
+          {
+            h2: "8. फैशन डिजाइनिंग",
+            p: "फैशन डिजाइनिंग में रचनात्मकता और तकनीकी कौशल का संयोजन होता है। यह वैश्विक अवसरों और उद्यमिता के लिए एक उत्कृष्ट क्षेत्र है।",
+            c1: "कोर्स का नाम: B.Des / B.Sc फैशन डिजाइनिंग",
+            c2: "अवधि: 3–4 वर्ष",
+            c3: "पात्रता: 10+2 (किसी भी स्ट्रीम से); NIFT/NID परीक्षा",
+            c4: "औसत वेतन: ₹4–9 लाख प्रति वर्ष",
+            c5: "शीर्ष भर्तीकर्ता: फैबइंडिया, H&M, ज़ारा, रेमंड"
+          }
+        ]
+      }
+    };
+
+    let lang = "en";
+    function render(){
+      document.getElementById("title").innerText = data[lang].title;
+      document.getElementById("subtitle").innerText = data[lang].subtitle;
+      document.getElementById("langBtn").innerText = data[lang].btn;
+
+      document.getElementById("content").innerHTML = data[lang].cards.map(c=>`
+        <div class="card">
+          <h2>${c.h2}</h2>
+          <p>${c.p}</p>
+          <p><span class="highlight">${c.c1.split(":")[0]}:</span> ${c.c1.split(":")[1]}</p>
+          <p><span class="highlight">${c.c2.split(":")[0]}:</span> ${c.c2.split(":")[1]}</p>
+          <p><span class="highlight">${c.c3.split(":")[0]}:</span> ${c.c3.split(":")[1]}</p>
+          <p><span class="highlight">${c.c4.split(":")[0]}:</span> ${c.c4.split(":")[1]}</p>
+          <p><span class="highlight">${c.c5.split(":")[0]}:</span> ${c.c5.split(":")[1]}</p>
+        </div>
+      `).join("");
+    }
+
+    function toggleLanguage(){
+      lang = lang === "en" ? "hi" : "en";
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>

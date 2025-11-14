@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stream2Dream — YouTube Video Library</title>
+  <style>
+    :root{
+      --bg:#f3f8ff; 
+      --card:#fff; 
+      --accent:#0b63d6; 
+      --muted:#5b6b7a;
+      --maxw:1100px;
+    }
+    *{
+      box-sizing:border-box;
+      font-family:Inter,system-ui,Arial;
+      -webkit-font-smoothing:antialiased;
+    }
+    body{
+      margin:0;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+      background:linear-gradient(180deg,var(--bg),#ffffff);
+    }
+    .wrap{width:100%;max-width:var(--maxw)}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+    .logo{
+      width:64px;
+      height:64px;
+      background:rgba(11,99,214,0.08);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--accent);
+      font-weight:800;
+      font-size:20px;
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:14px}
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:14px;
+      box-shadow:0 6px 18px rgba(11,63,120,0.06);
+      margin-bottom:14px
+    }
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .controls input,.controls select{
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid #e7f3ff;
+      min-width:180px
+    }
+    button.primary{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer
+    }
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .video{
+      background:#fff;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 6px 14px rgba(12,50,120,0.04);
+      display:flex;
+      flex-direction:column
+    }
+    .thumb{position:relative;padding-top:56.25%;background:#000}
+    .thumb img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover
+    }
+    .info{padding:10px}
+    .title{font-size:14px;margin:0 0 6px;color:#0f172a}
+    .cat{
+      display:inline-block;
+      padding:6px 8px;
+      border-radius:999px;
+      background:rgba(11,99,214,0.06);
+      color:var(--accent);
+      font-size:12px
+    }
+    .actions{margin-top:8px;display:flex;gap:8px;align-items:center}
+    .actions button{
+      padding:8px 10px;
+      border-radius:8px;
+      border:1px solid rgba(11,99,214,0.12);
+      background:transparent;
+      cursor:pointer
+    }
+    .playerModal{
+      position:fixed;
+      inset:0;
+      background:rgba(2,6,23,0.6);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:9999
+    }
+    .playerBox{
+      width:min(1100px,98%);
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden
+    }
+    .playerHeader{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:10px 12px;
+      border-bottom:1px solid #eef6ff
+    }
+    .playerBody{background:#000;padding:0}
+    .embedWrap{position:relative;padding-top:56.25%}
+    .embedWrap iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%
+    }
+    .closeBtn{
+      background:transparent;
+      border:0;
+      font-size:16px;
+      cursor:pointer;
+      color:var(--muted)
+    }
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}.controls{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">S2D</div>
+      <div>
+        <h1>Stream2Dream — Video Library</h1>
+        <p class="lead">Curated YouTube videos on streams, exams, skills, success stories and scholarships. Click to preview or copy embed code.</p>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="controls">
+        <input id="search" placeholder="Search by title..." />
+        <select id="filter">
+          <option value="all">All categories</option>
+          <option value="Stream Choice">Stream Choice</option>
+          <option value="Exam Preparation">Exam Preparation</option>
+          <option value="Career Paths & Future Jobs">Career Paths & Future Jobs</option>
+          <option value="Discover your talents">Discover your talents</option>
+          <option value="Motivational">Motivational</option>
+          <option value="Scholarships">Scholarships</option>
+          <option value="Success Stories">Success Stories & Alternatives</option>
+        </select>
+        <button class="primary" id="reset">Reset</button>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+    </div>
+
+    <div class="card" style="text-align:center;color:var(--muted);font-size:13px">
+      Tip: Click <b>Preview</b> to watch inside the page or <b>Embed</b> to copy iframe HTML for your website.
+    </div>
+  </div>
+
+  <!-- Modal player -->
+  <div id="playerModal" class="playerModal" role="dialog" aria-hidden="true">
+    <div class="playerBox" role="document">
+      <div class="playerHeader">
+        <div id="playerTitle" style="font-weight:700"></div>
+        <div>
+          <button id="copyEmbed" title="Copy embed HTML" class="closeBtn" style="margin-right:8px">Copy Embed</button>
+          <button id="closePlayer" class="closeBtn" title="Close">✕</button>
+        </div>
+      </div>
+      <div class="playerBody">
+        <div class="embedWrap" id="embedWrap"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // === Video data (curated). You can update titles/URLs here ===
+    const videos = [
+      {"category":"Stream Choice","title":"How to choose the right career? By Sandeep Maheshwari","url":"https://youtu.be/h-NjW4Wupzs"},
+      {"category":"Stream Choice","title":"3 Simple Steps for stream selection — which stream is best after 10th?","url":"https://youtu.be/De0Jr59IHQY"},
+      {"category":"Discover your talents","title":"Two ways to discover your passion — Sandeep Maheshwari","url":"https://youtu.be/aCSKFWxCB30"},
+      {"category":"Discover your talents","title":"How to plan your daily goals and follow key steps","url":"https://youtu.be/bsmFWeRZOXo"},
+      {"category":"Exam Preparation","title":"Smart strategy to crack civil services","url":"https://youtu.be/Y7JYlkcBeeM"},
+      {"category":"Success Stories","title":"NDA topper Shanan Dhaka","url":"https://youtu.be/H_p3SOWa-E4"},
+      {"category":"Success Stories","title":"Alakh Pandey motivational story","url":"https://youtu.be/4_3Yg8rSrnA"},
+      {"category":"Exam Preparation","title":"How to do SBI PO preparation without coaching","url":"https://youtu.be/40spuWoncqo"},
+      {"category":"Success Stories","title":"From a Housewife to a successful Entrepreneur","url":"https://youtu.be/4SJtbUzNwME"},
+      {"category":"Success Stories","title":"Neet Topper Perfect Strategy","url":"https://youtu.be/4SJtbUzNwME"},
+      {"category":"Scholarships","title":"HDFC Parivartan Scholarship 2024","url":"https://youtu.be/XgnwJ7hSiQY?si=b_WvAWXt4PebW7u7"},
+      {"category":"Career Paths & Future Jobs","title":"How to start coding effectively | For college students","url":"https://youtu.be/hp5ib30dq7w"},
+      {"category":"Motivational","title":"Vikas Divyakirti sir in Josh Talks | Motivational speech","url":"https://youtu.be/OIipC9LicMU"},
+      {"category":"Motivational","title":"Motivational speech by Dr. Kumar Vishwas","url":"https://youtu.be/HKgshZsWTEg"},
+      {"category":"Career Paths & Future Jobs","title":"Career right after class 12th | HCL TechBee Program","url":"https://youtu.be/-v6yfonE5f8"},
+      {"category":"Career Paths & Future Jobs","title":"All about CDS exams","url":"https://youtu.be/kCJvIrkOaTU"},
+      {"category":"Career Paths & Future Jobs","title":"Career In FINEARTS","url":"https://youtu.be/aoEiZryusXk?si=JvCCi9AkOxrZ9fNv"},
+      {"category":"Exam Preparation","title":"Top exams for LAW students","url":"https://youtu.be/vH07tUyzmzc"},
+      {"category":"Career Paths & Future Jobs","title":"Government jobs after class 12th","url":"https://youtu.be/wmrQ2diZ7LM"},
+      {"category":"skill and Development","title":"How To Improve Communication Skills?","url":"https://youtu.be/hE6I9apUvrk?si=a5Nr6CfRpgJ650eB"},
+      {"category":"skill and Development","title":"How To Build A Startup?","url":"https://youtu.be/AUdi3xR-OnQ?si=Z2qeu7Xc8qByxaKp"}
+    
+    ];
+
+    // Utility: extract YouTube ID from various formats
+    function extractYouTubeID(url){
+      try{
+        const u = new URL(url);
+        if(u.hostname.includes('youtu.be')) return u.pathname.slice(1);
+        if(u.hostname.includes('youtube.com')){
+          const v = u.searchParams.get('v');
+          if(v) return v;
+          const parts = u.pathname.split('/').filter(Boolean);
+          return parts[parts.length-1] || null;
+        }
+      }catch(e){}
+      const m = url.match(/(?:v=|\/)([0-9A-Za-z_-]{6,})/);
+      return m ? m[1] : null;
+    }
+
+    const grid = document.getElementById('grid');
+    const search = document.getElementById('search');
+    const filter = document.getElementById('filter');
+    const reset = document.getElementById('reset');
+    const playerModal = document.getElementById('playerModal');
+    const embedWrap = document.getElementById('embedWrap');
+    const playerTitle = document.getElementById('playerTitle');
+    const closePlayer = document.getElementById('closePlayer');
+    const copyEmbed = document.getElementById('copyEmbed');
+
+    function renderList(list){
+      grid.innerHTML = '';
+      if(!list.length){
+        grid.innerHTML = '<div style="grid-column:1/-1;padding:18px;color:var(--muted)">No videos found.</div>';
+        return;
+      }
+      list.forEach(item=>{
+        const id = extractYouTubeID(item.url);
+        const thumb = id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : '';
+        const el = document.createElement('div');
+        el.className = 'video';
+        el.innerHTML = `
+          <div class="thumb"><img alt="${escapeHtml(item.title)}" src="${thumb}" loading="lazy"></div>
+          <div class="info">
+            <div class="title">${escapeHtml(item.title)}</div>
+            <div class="cat">${escapeHtml(item.category)}</div>
+            <div class="actions">
+              <button data-id="${id}" data-title="${escapeHtml(item.title)}" class="previewBtn">Preview</button>
+              <button data-id="${id}" data-title="${escapeHtml(item.title)}" class="embedBtn">Embed</button>
+              <a href="${item.url}" target="_blank" rel="noopener" style="margin-left:auto;color:var(--accent);text-decoration:none">YouTube ↗</a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(el);
+      });
+
+      // attach events
+      document.querySelectorAll('.previewBtn').forEach(b=>{
+        b.addEventListener('click', e=>{
+          const vid = e.currentTarget.dataset.id;
+          const title = e.currentTarget.dataset.title;
+          openPlayer(vid, title);
+        });
+      });
+      document.querySelectorAll('.embedBtn').forEach(b=>{
+        b.addEventListener('click', e=>{
+          const vid = e.currentTarget.dataset.id;
+          const title = e.currentTarget.dataset.title;
+          const embedHtml = makeEmbedHtml(vid, title);
+          navigator.clipboard.writeText(embedHtml).then(()=>{
+            alert('Embed HTML copied to clipboard. Paste into your page where you want the video.');
+          }).catch(()=>{ prompt('Copy this embed HTML:', embedHtml); });
+        });
+      });
+    }
+
+    function escapeHtml(s){ 
+      return String(s).replace(/[&<>"']/g, c=>({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[c]));
+    }
+
+    function makeEmbedHtml(vid, title){
+      if(!vid) return '';
+      return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${vid}" 
+      title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+      encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    }
+
+    function openPlayer(vid, title){
+      if(!vid){ alert('Invalid video URL'); return; }
+      playerTitle.textContent = title || 'Video';
+      embedWrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${vid}" 
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+      gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:0"></iframe>`;
+      playerModal.style.display = 'flex';
+      playerModal.setAttribute('aria-hidden','false');
+      copyEmbed.dataset.embed = makeEmbedHtml(vid, title);
+    }
+
+    function closeModal(){
+      playerModal.style.display = 'none';
+      playerModal.setAttribute('aria-hidden','true');
+      embedWrap.innerHTML = '';
+    }
+
+    closePlayer.addEventListener('click', closeModal);
+    playerModal.addEventListener('click', e=>{ if(e.target===playerModal) closeModal(); });
+    copyEmbed.addEventListener('click', ()=>{
+      const emb = copyEmbed.dataset.embed || '';
+      if(!emb) return;
+      navigator.clipboard.writeText(emb).then(()=>alert('Embed HTML copied to clipboard.'))
+      .catch(()=>prompt('Copy this embed HTML:', emb));
+    });
+
+    function applyFilters(){
+      const q = search.value.trim().toLowerCase();
+      const cat = filter.value;
+      const filtered = videos.filter(v=>{
+        const matchCat = (cat === 'all') || (v.category.toLowerCase() === cat.toLowerCase());
+        const matchQ = !q || (v.title.toLowerCase().includes(q) || v.category.toLowerCase().includes(q));
+        return matchCat && matchQ;
+      });
+      renderList(filtered);
+    }
+
+    search.addEventListener('input', applyFilters);
+    filter.addEventListener('change', applyFilters);
+    reset.addEventListener('click', ()=>{
+      search.value='';
+      filter.value='all';
+      applyFilters();
+    });
+
+    // Initial render
+    renderList(videos);
+  </script>
+</body>
+</html>

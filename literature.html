@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literature Courses After Class 12th</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f0f7ff;
+      color: #033e8c;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0077cc;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .lang-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #0077cc;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: #e6f2ff;
+    }
+
+    section {
+      background: white;
+      margin: 20px auto;
+      max-width: 1000px;
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 4px 10px rgba(0, 119, 204, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 119, 204, 0.2);
+    }
+
+    h2 {
+      color: #005fa3;
+      margin-bottom: 15px;
+      border-left: 5px solid #21577e;
+      padding-left: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      list-style-type: square;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid #09568d;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #125b8f;
+      color: white;
+    }
+
+    .salary {
+      text-align: center;
+    }
+
+    /* Smooth scroll animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="pageTitle">📖 Literature Courses After Class 12th — Full Information
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">हिंदी में देखें</button>
+  </header>
+
+  <div id="content"></div>
+
+  <script>
+    const data = {
+      en: {
+        title: "📖 Literature Courses After Class 12th — Full Information",
+        btn: "हिंदी में देखें",
+        sections: [
+          {
+            heading: "What Are Literature Courses?",
+            content: `
+              <p>
+                Literature courses focus on the <strong>study of written works</strong> — including poetry, fiction, drama, essays, and critical analysis. 
+                They help students understand <strong>language, culture, society, and human thought</strong> through literature. 
+                These courses also develop <strong>reading, writing, critical thinking, and communication skills</strong>.
+              </p>`
+          },
+          {
+            heading: "Why Choose Literature Courses After Class 12th?",
+            content: `
+              <ul>
+                <li><strong>Enhances Communication Skills:</strong> Students learn to read, interpret, and express ideas clearly.</li>
+                <li><strong>Develops Critical Thinking:</strong> Literature encourages analyzing texts, understanding themes, and forming opinions.</li>
+                <li><strong>Cultural & Social Awareness:</strong> Students explore different societies, histories, and human emotions through literature.</li>
+                <li><strong>Versatile Career Options:</strong> Graduates can pursue careers in writing, teaching, journalism, content creation, translation, and more.</li>
+                <li><strong>Foundation for Higher Studies:</strong> Literature courses prepare students for MA, PhD, or professional courses in law, media, or communication.</li>
+                <li><strong>Creative & Intellectual Growth:</strong> Encourages imagination, creativity, and appreciation for arts and culture.</li>
+              </ul>`
+          },
+          {
+            heading: "Eligibility After Class 12th",
+            content: `
+              <ul>
+                <li><strong>Stream Required:</strong> Arts, Humanities, or Science (with interest in languages)</li>
+                <li><strong>Minimum Marks:</strong> Usually 45–50% in Class 12th (varies by university)</li>
+                <li><strong>Admission Process:</strong> Merit-based in most universities; some may require entrance exams for specific programs.</li>
+              </ul>`
+          },
+          {
+            heading: "Subjects in Literature Courses",
+            content: `
+              <table>
+                <tr><th>Course</th><th>Core Subjects</th></tr>
+                <tr><td>English Literature</td><td>Poetry, Drama, Fiction, Literary Theory, Modern Literature, Indian Writing in English</td></tr>
+                <tr><td>Regional Literature</td><td>Classical Texts, Modern Literature, Literary Criticism, Language Grammar</td></tr>
+                <tr><td>Comparative Literature</td><td>World Literature, Translation Studies, Cultural Studies, Critical Theory</td></tr>
+                <tr><td>Foreign Language Literature</td><td>Language Skills, Grammar, Literary Texts, Translation, Cultural History</td></tr>
+                <tr><td>Creative Writing Courses</td><td>Fiction Writing, Poetry, Screenwriting, Essay Writing, Editing</td></tr>
+              </table>`
+          },
+          {
+            heading: "Top Institutes Offering Literature Courses in India",
+            content: `
+              <ul>
+                <li>University of Delhi (DU), Delhi</li>
+                <li>Jawaharlal Nehru University (JNU), Delhi</li>
+                <li>Banaras Hindu University (BHU), Varanasi</li>
+                <li>Jadavpur University, Kolkata</li>
+                <li>University of Hyderabad, Hyderabad</li>
+                <li>Lady Shri Ram College (LSR), Delhi — English Literature</li>
+                <li>Regional universities for specific language literature</li>
+              </ul>`
+          },
+          {
+            heading: "Career Options After Literature Courses",
+            content: `
+              <table>
+                <tr><th>Field</th><th>Job Roles</th><th>Sector</th></tr>
+                <tr><td>Education</td><td>Teacher, Lecturer, Academic Researcher</td><td>Schools/Colleges/Universities</td></tr>
+                <tr><td>Writing & Publishing</td><td>Author, Editor, Content Writer, Copywriter</td><td>Media/Publishing Houses</td></tr>
+                <tr><td>Media & Journalism</td><td>Journalist, Reporter, Columnist</td><td>Print/Digital/TV Media</td></tr>
+                <tr><td>Translation & Interpretation</td><td>Translator, Interpreter</td><td>Private/Govt/International</td></tr>
+                <tr><td>Law & Civil Services</td><td>Legal Researcher, Civil Servant</td><td>Govt/Private</td></tr>
+                <tr><td>Creative Industry</td><td>Screenwriter, Scriptwriter, Social Media Manager</td><td>Films, Digital Platforms</td></tr>
+              </table>`
+          },
+          {
+            heading: "Salary Range",
+            content: `<div class='salary'><p><strong>Entry-level:</strong> ₹2–4 LPA</p><p><strong>Experienced Professional:</strong> ₹4–8 LPA</p><p><strong>Creative/Research or Civil Services:</strong> ₹6–15 LPA+</p></div>`
+          },
+          {
+            heading: "Future Scope",
+            content: `
+              <ul>
+                <li>Pursue MA, MPhil, or PhD in Literature.</li>
+                <li>Specialize in Translation, Linguistics, Creative Writing, Journalism, or Digital Content.</li>
+                <li>Opportunities in global organizations, foreign language teaching, and research institutes.</li>
+                <li>Growing demand for content creation, blogging, social media writing, and literary consultancy.</li>
+              </ul>`
+          }
+        ]
+      },
+
+      hi: {
+        title: "📖 कक्षा 12वीं के बाद साहित्य पाठ्यक्रम — पूरी जानकारी",
+        btn: "View in English",
+        sections: [
+          {
+            heading: "साहित्य पाठ्यक्रम क्या हैं?",
+            content: `
+              <p>
+                साहित्य पाठ्यक्रम <strong>लिखित रचनाओं के अध्ययन</strong> पर केंद्रित होते हैं — जिनमें कविता, कहानी, नाटक, निबंध और आलोचना शामिल हैं। 
+                ये पाठ्यक्रम छात्रों को <strong>भाषा, संस्कृति, समाज और मानव विचार</strong> को समझने में मदद करते हैं। 
+                साथ ही <strong>पठन, लेखन, विश्लेषणात्मक और संप्रेषण कौशल</strong> विकसित करते हैं।
+              </p>`
+          },
+          {
+            heading: "12वीं के बाद साहित्य पाठ्यक्रम क्यों चुनें?",
+            content: `
+              <ul>
+                <li><strong>संचार कौशल में सुधार:</strong> छात्र स्पष्ट रूप से विचार व्यक्त करना सीखते हैं।</li>
+                <li><strong>आलोचनात्मक सोच का विकास:</strong> साहित्य विश्लेषण और चिंतन सिखाता है।</li>
+                <li><strong>सांस्कृतिक और सामाजिक समझ:</strong> साहित्य के माध्यम से समाज और इतिहास की जानकारी मिलती है।</li>
+                <li><strong>विविध करियर विकल्प:</strong> लेखन, शिक्षण, पत्रकारिता, अनुवाद, कंटेंट क्रिएशन आदि में अवसर।</li>
+                <li><strong>उच्च अध्ययन की नींव:</strong> एमए, पीएचडी या कानून, मीडिया, संचार जैसे कोर्सों के लिए आधार।</li>
+                <li><strong>रचनात्मक और बौद्धिक विकास:</strong> कल्पना और कला की सराहना को प्रोत्साहन देता है।</li>
+              </ul>`
+          },
+          {
+            heading: "12वीं के बाद पात्रता",
+            content: `
+              <ul>
+                <li><strong>आवश्यक स्ट्रीम:</strong> कला, मानविकी या विज्ञान (भाषाओं में रुचि रखने वाले)</li>
+                <li><strong>न्यूनतम अंक:</strong> सामान्यतः 45–50% (विश्वविद्यालय अनुसार)</li>
+                <li><strong>प्रवेश प्रक्रिया:</strong> अधिकतर मेरिट आधारित; कुछ में प्रवेश परीक्षा।</li>
+              </ul>`
+          },
+          {
+            heading: "साहित्य पाठ्यक्रम में विषय",
+            content: `
+              <table>
+                <tr><th>कोर्स</th><th>मुख्य विषय</th></tr>
+                <tr><td>अंग्रेज़ी साहित्य</td><td>कविता, नाटक, कहानी, साहित्यिक सिद्धांत, आधुनिक साहित्य, भारतीय लेखन</td></tr>
+                <tr><td>क्षेत्रीय साहित्य</td><td>शास्त्रीय रचनाएँ, आधुनिक साहित्य, आलोचना, व्याकरण</td></tr>
+                <tr><td>तुलनात्मक साहित्य</td><td>विश्व साहित्य, अनुवाद अध्ययन, सांस्कृतिक अध्ययन, आलोचनात्मक सिद्धांत</td></tr>
+                <tr><td>विदेशी भाषा साहित्य</td><td>भाषा कौशल, व्याकरण, साहित्यिक पाठ, अनुवाद, सांस्कृतिक इतिहास</td></tr>
+                <tr><td>रचनात्मक लेखन</td><td>कहानी लेखन, कविता, पटकथा, निबंध लेखन, संपादन</td></tr>
+              </table>`
+          },
+          {
+            heading: "भारत में साहित्य पाठ्यक्रम प्रदान करने वाले प्रमुख संस्थान",
+            content: `
+              <ul>
+                <li>दिल्ली विश्वविद्यालय (DU), दिल्ली</li>
+                <li>जवाहरलाल नेहरू विश्वविद्यालय (JNU), दिल्ली</li>
+                <li>काशी हिंदू विश्वविद्यालय (BHU), वाराणसी</li>
+                <li>जादवपुर विश्वविद्यालय, कोलकाता</li>
+                <li>हैदराबाद विश्वविद्यालय, हैदराबाद</li>
+                <li>लेडी श्रीराम कॉलेज (LSR), दिल्ली — अंग्रेज़ी साहित्य</li>
+                <li>क्षेत्रीय विश्वविद्यालय — स्थानीय भाषाओं के लिए</li>
+              </ul>`
+          },
+          {
+            heading: "साहित्य कोर्स के बाद करियर विकल्प",
+            content: `
+              <table>
+                <tr><th>क्षेत्र</th><th>कार्य भूमिकाएँ</th><th>क्षेत्र/सेक्टर</th></tr>
+                <tr><td>शिक्षा</td><td>शिक्षक, व्याख्याता, शोधकर्ता</td><td>विद्यालय/कॉलेज/विश्वविद्यालय</td></tr>
+                <tr><td>लेखन और प्रकाशन</td><td>लेखक, संपादक, कंटेंट राइटर, कॉपीराइटर</td><td>मीडिया/प्रकाशन गृह</td></tr>
+                <tr><td>मीडिया और पत्रकारिता</td><td>पत्रकार, संवाददाता, स्तंभ लेखक</td><td>प्रिंट/डिजिटल/टीवी मीडिया</td></tr>
+                <tr><td>अनुवाद और व्याख्या</td><td>अनुवादक, दुभाषिया</td><td>सरकारी/निजी/अंतरराष्ट्रीय</td></tr>
+                <tr><td>कानून और सिविल सेवा</td><td>कानूनी शोधकर्ता, सिविल सेवक</td><td>सरकारी/निजी</td></tr>
+                <tr><td>रचनात्मक उद्योग</td><td>स्क्रिप्ट लेखक, पटकथा लेखक, सोशल मीडिया प्रबंधक</td><td>फिल्म, डिजिटल प्लेटफ़ॉर्म</td></tr>
+              </table>`
+          },
+          {
+            heading: "वेतन सीमा",
+            content: `<div class='salary'><p><strong>प्रारंभिक स्तर:</strong> ₹2–4 लाख प्रति वर्ष</p><p><strong>अनुभवी पेशेवर:</strong> ₹4–8 लाख प्रति वर्ष</p><p><strong>रचनात्मक/अनुसंधान या सिविल सेवा:</strong> ₹6–15 लाख+ प्रति वर्ष</p></div>`
+          },
+          {
+            heading: "भविष्य की संभावनाएँ",
+            content: `
+              <ul>
+                <li>एमए, एमफिल या पीएचडी करें।</li>
+                <li>अनुवाद, भाषाविज्ञान, रचनात्मक लेखन, पत्रकारिता या डिजिटल सामग्री में विशेषज्ञता प्राप्त करें।</li>
+                <li>अंतरराष्ट्रीय संस्थानों में अध्यापन और अनुसंधान के अवसर।</li>
+                <li>ब्लॉगिंग, कंटेंट राइटिंग और साहित्यिक परामर्श में बढ़ते अवसर।</li>
+              </ul>`
+          }
+        ]
+      }
+    };
+
+    let lang = "en";
+
+    function render() {
+      const d = data[lang];
+      document.getElementById("pageTitle").childNodes[0].textContent = d.title;
+      document.getElementById("langBtn").innerText = d.btn;
+
+      const contentHTML = d.sections.map(
+        sec => `<section class="fade-in"><h2>${sec.heading}</h2>${sec.content}</section>`
+      ).join("");
+      document.getElementById("content").innerHTML = contentHTML;
+
+      // Re-apply fade animation
+      const fadeElements = document.querySelectorAll('.fade-in');
+      window.addEventListener('scroll', () => {
+        fadeElements.forEach(el => {
+          const position = el.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+          if (position < screenPosition) el.classList.add('show');
+        });
+      });
+    }
+
+    function toggleLang() {
+      lang = lang === "en" ? "hi" : "en";
+      render();
+    }
+
+    render();
+  </script>
+
+</body>
+</html>

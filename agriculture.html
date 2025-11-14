@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agriculture Science Courses After 12th</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f7fff3;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #315085;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    #langToggle {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: #315085;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #langToggle:hover {
+      background: #3b6cb1;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 30px auto;
+    }
+
+    .course {
+      background: white;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 6px solid #315085;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .course:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      color: #315085;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #315085;
+    }
+  </style>
+</head>
+<body>
+  <header id="pageTitle">Agriculture Science Courses After 12th</header>
+  <button id="langToggle" onclick="toggleLanguage()">हिंदी में बदलें</button>
+
+  <div class="container" id="courseContainer"></div>
+
+  <script>
+    const data = {
+      en: {
+        title: "Agriculture Science Courses After 12th",
+        button: "हिंदी में बदलें",
+        courses: [
+          ["BSc Agriculture Science", "Duration: 4 Years", "A comprehensive degree covering various aspects of agriculture, from crop production to agricultural economics and farm management."],
+          ["BSc Agriculture (Hons.)", "Duration: 4 Years", "Focuses on advanced agricultural studies, integrating scientific research and practical applications to enhance productivity and sustainability."],
+          ["BTech in Agricultural Science", "Duration: 4 Years", "Applies engineering principles to agriculture, including designing agricultural machinery and managing soil and crop production."],
+          ["BTech in Horticultural Science", "Duration: 4 Years", "Focuses on the science and technology of growing and managing fruits, vegetables, flowers, and ornamental plants."],
+          ["BSc in Fisheries", "Duration: 4 Years", "Covers the science of breeding and harvesting fish and other aquatic organisms, preparing students for careers in aquaculture and fisheries management."],
+          ["BSc in Agricultural Economics and Farm Management", "Duration: 3–4 Years", "Integrates economic principles with agricultural practices, emphasizing efficient farm management and agricultural policy."],
+          ["BSc in Soil and Water Management", "Duration: 3–4 Years", "Addresses soil conservation, water resource management, and sustainable agricultural practices."],
+          ["BSc in Agriculture and Food Business", "Duration: 3–4 Years", "Combines agricultural science with business principles, preparing students for careers in agribusiness and food production industries."],
+          ["BSc in Animal Husbandry", "Duration: 3–4 Years", "Focuses on the breeding, care, and management of livestock, including cattle, poultry, and other farm animals."],
+          ["BSc in Forestry", "Duration: 4 Years", "Teaches sustainable forest management, conservation practices, and the ecological importance of forests."],
+          ["BSc in Genetics and Plant Breeding", "Duration: 3 Years", "Focuses on genetic improvement of plants to enhance yield, disease resistance and other desirable traits."],
+          ["BSc in Food Science and Nutrition", "Duration: 3 Years", "Explores the science behind food production, preservation, and nutrition, aiming to improve food quality and safety."],
+          ["BSc in Horticulture", "Duration: 3 Years", "Dedicated to the cultivation of plants, including fruits, vegetables, and flowers, and their economic and aesthetic value."],
+          ["Diploma in Agriculture", "Duration: 1–2 Years", "Provides foundational knowledge and practical skills in various agricultural practices."],
+          ["Certificate in Agriculture", "Duration: 6 Months – 1 Year", "Offers basic training in agricultural techniques, suitable for those seeking quick entry into the agricultural field."]
+        ]
+      },
+      hi: {
+        title: "कृषि विज्ञान पाठ्यक्रम (12वीं के बाद)",
+        button: "Switch to English",
+        courses: [
+          ["बीएससी कृषि विज्ञान", "अवधि: 4 वर्ष", "यह एक व्यापक डिग्री है जो कृषि के विभिन्न पहलुओं को कवर करती है, जैसे फसल उत्पादन, कृषि अर्थशास्त्र और फार्म प्रबंधन।"],
+          ["बीएससी कृषि (ऑनर्स.)", "अवधि: 4 वर्ष", "उन्नत कृषि अध्ययन पर केंद्रित, यह वैज्ञानिक अनुसंधान और व्यावहारिक अनुप्रयोगों को एकीकृत करता है ताकि उत्पादकता और स्थिरता बढ़ाई जा सके।"],
+          ["बीटेक कृषि विज्ञान में", "अवधि: 4 वर्ष", "कृषि में इंजीनियरिंग सिद्धांतों को लागू करता है, जिसमें कृषि मशीनरी का डिजाइन और मिट्टी तथा फसलों का प्रबंधन शामिल है।"],
+          ["बीटेक उद्यान विज्ञान में", "अवधि: 4 वर्ष", "फलों, सब्जियों, फूलों और सजावटी पौधों के उत्पादन और प्रबंधन के विज्ञान और तकनीक पर केंद्रित।"],
+          ["बीएससी मत्स्य विज्ञान में", "अवधि: 4 वर्ष", "मछलियों और अन्य जलीय जीवों के प्रजनन और उत्पादन के विज्ञान को कवर करता है, छात्रों को मत्स्य पालन प्रबंधन के करियर के लिए तैयार करता है।"],
+          ["बीएससी कृषि अर्थशास्त्र और फार्म प्रबंधन में", "अवधि: 3–4 वर्ष", "आर्थिक सिद्धांतों को कृषि प्रथाओं के साथ जोड़ता है, कुशल फार्म प्रबंधन और कृषि नीति पर जोर देता है।"],
+          ["बीएससी मृदा और जल प्रबंधन में", "अवधि: 3–4 वर्ष", "मृदा संरक्षण, जल संसाधन प्रबंधन और सतत कृषि प्रथाओं को संबोधित करता है।"],
+          ["बीएससी कृषि और खाद्य व्यवसाय में", "अवधि: 3–4 वर्ष", "कृषि विज्ञान को व्यवसायिक सिद्धांतों के साथ जोड़ता है, जिससे छात्र कृषि और खाद्य उद्योगों में करियर बना सकें।"],
+          ["बीएससी पशुपालन में", "अवधि: 3–4 वर्ष", "पशुधन जैसे गाय, मुर्गी और अन्य जानवरों के प्रजनन, देखभाल और प्रबंधन पर केंद्रित।"],
+          ["बीएससी वानिकी में", "अवधि: 4 वर्ष", "सतत वन प्रबंधन, संरक्षण तकनीक और वनों के पारिस्थितिक महत्व की शिक्षा देता है।"],
+          ["बीएससी आनुवंशिकी और पौध प्रजनन में", "अवधि: 3 वर्ष", "पौधों की आनुवंशिक सुधार के माध्यम से उपज, रोग प्रतिरोधकता और अन्य गुणों को बढ़ाने पर केंद्रित।"],
+          ["बीएससी खाद्य विज्ञान और पोषण में", "अवधि: 3 वर्ष", "भोजन के उत्पादन, संरक्षण और पोषण के पीछे के विज्ञान की खोज करता है ताकि गुणवत्ता और सुरक्षा में सुधार किया जा सके।"],
+          ["बीएससी उद्यान विज्ञान में", "अवधि: 3 वर्ष", "फलों, सब्जियों और फूलों की खेती और उनके आर्थिक व सौंदर्य मूल्य पर केंद्रित।"],
+          ["डिप्लोमा इन एग्रीकल्चर", "अवधि: 1–2 वर्ष", "कृषि के विभिन्न क्षेत्रों में बुनियादी ज्ञान और व्यावहारिक कौशल प्रदान करता है।"],
+          ["सर्टिफिकेट इन एग्रीकल्चर", "अवधि: 6 महीने – 1 वर्ष", "कृषि तकनीकों में बुनियादी प्रशिक्षण प्रदान करता है, जो जल्दी रोजगार चाहने वालों के लिए उपयुक्त है।"]
+        ]
+      }
+    };
+
+    let currentLang = "en";
+
+    function renderCourses() {
+      const langData = data[currentLang];
+      document.getElementById("pageTitle").innerText = langData.title;
+      document.getElementById("langToggle").innerText = langData.button;
+
+      const container = document.getElementById("courseContainer");
+      container.innerHTML = "";
+      langData.courses.forEach(course => {
+        const div = document.createElement("div");
+        div.className = "course";
+        div.innerHTML = `
+          <h2>${course[0]}</h2>
+          <p><span class="highlight">${course[1].split(':')[0]}:</span> ${course[1].split(':')[1]}</p>
+          <p>${course[2]}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === "en" ? "hi" : "en";
+      renderCourses();
+    }
+
+    renderCourses();
+  </script>
+</body>
+</html>

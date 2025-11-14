@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Competitive Exams After 12th | Stream2Dream</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      background: linear-gradient(135deg, #094fa3, #057a9a);
+      color: white;
+      padding: 40px 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 1em;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    .lang-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: white;
+      color: #094fa3;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: #eaf1ff;
+    }
+
+    .stream-section {
+      background: white;
+      margin: 30px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 950px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .stream-section h2 {
+      color: #0d468a;
+      margin-bottom: 15px;
+      font-size: 1.4em;
+      border-left: 5px solid #086984;
+      padding-left: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #074795;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    footer {
+      text-align: center;
+      background: #0953ae;
+      color: white;
+      padding: 15px 0;
+      margin-top: 30px;
+    }
+
+    .back-home {
+      display: inline-block;
+      background: #056682;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .back-home:hover {
+      background: #0094e8;
+    }
+
+    @media (max-width: 600px) {
+      table, th, td {
+        font-size: 14px;
+      }
+      header h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">All Competitive Exams After 12th</h1>
+    <p class="subtitle" id="subtitle">Explore exams for Science, Commerce & Arts students</p>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">हिंदी में देखें</button>
+  </header>
+
+  <div id="content"></div>
+
+  <div style="text-align:center; margin-bottom:30px;">
+    <a href="index.html" class="back-home" id="backText">⬅ Back to Home</a>
+  </div>
+
+  <footer>
+    <p id="footerText">© 2025 Stream2Dream | Career Path Guidance for Students</p>
+  </footer>
+
+  <script>
+    const data = {
+      en: {
+        title: "All Competitive Exams After 12th",
+        subtitle: "Explore exams for Science, Commerce & Arts students",
+        btn: "हिंदी में देखें",
+        back: "⬅ Back to Home",
+        footer: "© 2025 Stream2Dream | Career Path Guidance for Students",
+        sections: [
+          {
+            title: "🔬 Science Stream (PCM / PCB)",
+            rows: [
+              ["JEE Main & Advanced", "Engineering Entrance", "IITs, NITs, IIITs"],
+              ["BITSAT / VITEEE / SRMJEEE", "Private Engineering Colleges", "BITS, VIT, SRM, etc."],
+              ["NEET-UG", "Medical Entrance", "MBBS, BDS, BHMS, BAMS"],
+              ["IISER Aptitude Test (IAT)", "Science & Research", "IISERs (BS-MS)"],
+              ["NEST", "Research Programs", "NISER, UM-DAE CBS"],
+              ["ISI Admission Test", "Maths & Statistics", "ISI Kolkata, Delhi"],
+              ["NDA / TES", "Defence & Armed Forces", "Army, Navy, Air Force"],
+              ["UCEED / NATA", "Design & Architecture", "IITs, NID, B.Arch Colleges"]
+            ]
+          },
+          {
+            title: "💼 Commerce Stream",
+            rows: [
+              ["CA Foundation", "Chartered Accountancy", "ICAI"],
+              ["CMA Foundation", "Cost & Management Accounting", "ICMAI"],
+              ["CS Foundation", "Company Secretary", "ICSI"],
+              ["IPMAT", "Integrated BBA + MBA", "IIM Indore, Rohtak, others"],
+              ["CUET-UG", "Commerce, B.Com, BBA, Economics", "Central Universities"],
+              ["NPAT", "BBA, B.Com, Economics", "NMIMS University"],
+              ["SET (Symbiosis)", "BBA, BCA, Law, etc.", "Symbiosis International Univ."],
+              ["DU JAT", "BBA/BMS Admission", "Delhi University"],
+              ["Bank Clerical Exams", "Banking Sector Jobs (later years)", "Public & Private Banks"]
+            ]
+          },
+          {
+            title: "🎨 Arts / Humanities Stream",
+            rows: [
+              ["CUET-UG", "Undergraduate in Arts, BA, Psychology, History", "Central Universities"],
+              ["DU Entrance / JNUEE", "BA Programs", "Delhi Univ., JNU"],
+              ["CLAT / AILET / LSAT", "Law Entrance (BA LLB)", "NLUs, Private Law Schools"],
+              ["NID DAT / UCEED", "Design Courses", "NID, IITs"],
+              ["NIFT Entrance", "Fashion Designing", "NIFT Campuses"],
+              ["Hotel Management (NCHMCT JEE)", "Hospitality & Tourism", "IHMs, Private Institutes"],
+              ["BFA / Performing Arts Tests", "Fine Arts, Music, Theatre", "Various Universities"],
+              ["UPSC / SSC (after graduation)", "Civil & Government Services", "Central Govt. Exams"]
+            ]
+          },
+          {
+            title: "🌍 Common Exams for All Streams",
+            rows: [
+              ["NDA", "Defence Services", "Army, Navy, Air Force"],
+              ["SSC CHSL", "Clerical Govt. Jobs", "Staff Selection Commission"],
+              ["Railway RRB Exams", "Railway Jobs", "Indian Railways"],
+              ["Hotel Management (NCHMCT JEE)", "Hospitality Management", "IHMs"],
+              ["Mass Communication (IIMC, CUET)", "Journalism & Media", "IIMC, DU, Private Colleges"],
+              ["Foreign Exams: SAT / IELTS / TOEFL", "Study Abroad", "International Universities"]
+            ]
+          }
+        ]
+      },
+
+      hi: {
+        title: "12वीं के बाद सभी प्रतियोगी परीक्षाएँ",
+        subtitle: "विज्ञान, वाणिज्य और कला के छात्रों के लिए सभी प्रमुख परीक्षाओं की जानकारी",
+        btn: "View in English",
+        back: "⬅ होम पेज पर जाएँ",
+        footer: "© 2025 Stream2Dream | छात्रों के लिए करियर मार्गदर्शन",
+        sections: [
+          {
+            title: "🔬 विज्ञान शाखा (PCM / PCB)",
+            rows: [
+              ["JEE Main & Advanced", "इंजीनियरिंग प्रवेश परीक्षा", "IITs, NITs, IIITs"],
+              ["BITSAT / VITEEE / SRMJEEE", "निजी इंजीनियरिंग कॉलेजों के लिए", "BITS, VIT, SRM आदि"],
+              ["NEET-UG", "मेडिकल प्रवेश परीक्षा", "MBBS, BDS, BHMS, BAMS"],
+              ["IISER Aptitude Test (IAT)", "विज्ञान और शोध क्षेत्र", "IISER (BS-MS)"],
+              ["NEST", "शोध कार्यक्रम", "NISER, UM-DAE CBS"],
+              ["ISI Admission Test", "गणित और सांख्यिकी", "ISI कोलकाता, दिल्ली"],
+              ["NDA / TES", "रक्षा सेवाएँ", "थल सेना, नौसेना, वायु सेना"],
+              ["UCEED / NATA", "डिज़ाइन और वास्तुकला", "IITs, NID, B.Arch कॉलेज"]
+            ]
+          },
+          {
+            title: "💼 वाणिज्य शाखा",
+            rows: [
+              ["CA Foundation", "चार्टर्ड अकाउंटेंसी", "ICAI"],
+              ["CMA Foundation", "कॉस्ट और मैनेजमेंट अकाउंटिंग", "ICMAI"],
+              ["CS Foundation", "कंपनी सेक्रेटरी", "ICSI"],
+              ["IPMAT", "एकीकृत BBA + MBA कार्यक्रम", "IIM इंदौर, रोहतक, अन्य"],
+              ["CUET-UG", "कॉमर्स, B.Com, BBA, इकोनॉमिक्स", "केंद्रीय विश्वविद्यालय"],
+              ["NPAT", "BBA, B.Com, इकोनॉमिक्स", "NMIMS विश्वविद्यालय"],
+              ["SET (Symbiosis)", "BBA, BCA, लॉ आदि", "सिंबायोसिस इंटरनेशनल यूनिवर्सिटी"],
+              ["DU JAT", "BBA/BMS प्रवेश परीक्षा", "दिल्ली विश्वविद्यालय"],
+              ["Bank Clerical Exams", "बैंकिंग क्षेत्र की नौकरियाँ", "सार्वजनिक एवं निजी बैंक"]
+            ]
+          },
+          {
+            title: "🎨 कला / मानविकी शाखा",
+            rows: [
+              ["CUET-UG", "कला, BA, मनोविज्ञान, इतिहास के कोर्स", "केंद्रीय विश्वविद्यालय"],
+              ["DU Entrance / JNUEE", "BA प्रोग्राम्स", "दिल्ली विश्वविद्यालय, जेएनयू"],
+              ["CLAT / AILET / LSAT", "कानून प्रवेश (BA LLB)", "NLUs, निजी लॉ स्कूल"],
+              ["NID DAT / UCEED", "डिज़ाइन कोर्स", "NID, IITs"],
+              ["NIFT Entrance", "फैशन डिज़ाइनिंग", "NIFT कैंपस"],
+              ["Hotel Management (NCHMCT JEE)", "हॉस्पिटैलिटी और टूरिज़्म", "IHMs, निजी संस्थान"],
+              ["BFA / Performing Arts Tests", "ललित कला, संगीत, थिएटर", "विभिन्न विश्वविद्यालय"],
+              ["UPSC / SSC (स्नातक के बाद)", "प्रशासनिक व सरकारी सेवाएँ", "केंद्रीय सरकारी परीक्षाएँ"]
+            ]
+          },
+          {
+            title: "🌍 सभी शाखाओं के लिए सामान्य परीक्षाएँ",
+            rows: [
+              ["NDA", "रक्षा सेवाएँ", "थल सेना, नौसेना, वायु सेना"],
+              ["SSC CHSL", "सरकारी क्लर्कीय नौकरियाँ", "कर्मचारी चयन आयोग"],
+              ["Railway RRB Exams", "रेलवे नौकरियाँ", "भारतीय रेल"],
+              ["Hotel Management (NCHMCT JEE)", "हॉस्पिटैलिटी प्रबंधन", "IHMs"],
+              ["Mass Communication (IIMC, CUET)", "पत्रकारिता और मीडिया", "IIMC, DU, निजी कॉलेज"],
+              ["Foreign Exams: SAT / IELTS / TOEFL", "विदेश में अध्ययन", "अंतरराष्ट्रीय विश्वविद्यालय"]
+            ]
+          }
+        ]
+      }
+    };
+
+    let lang = "en";
+
+    function render() {
+      const d = data[lang];
+      document.getElementById("title").innerText = d.title;
+      document.getElementById("subtitle").innerText = d.subtitle;
+      document.getElementById("langBtn").innerText = d.btn;
+      document.getElementById("backText").innerText = d.back;
+      document.getElementById("footerText").innerText = d.footer;
+
+      document.getElementById("content").innerHTML = d.sections.map(sec => `
+        <section class="stream-section">
+          <h2>${sec.title}</h2>
+          <table>
+            <tr><th>${lang === "en" ? "Exam" : "परीक्षा"}</th><th>${lang === "en" ? "Purpose" : "उद्देश्य"}</th><th>${lang === "en" ? "Institutes / Courses" : "संस्थान / पाठ्यक्रम"}</th></tr>
+            ${sec.rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}
+          </table>
+        </section>
+      `).join("");
+    }
+
+    function toggleLang() {
+      lang = lang === "en" ? "hi" : "en";
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>

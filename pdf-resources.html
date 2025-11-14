@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>eSaral Links (Bilingual)</title>
+  <style>
+    body {
+      background-color: #f4faff;
+      color: #003366;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #cce4ff;
+      border-radius: 8px;
+    }
+    h1 {
+      text-align: center;
+      color: #002244;
+    }
+    .links {
+      margin: 20px 0;
+    }
+    .links a {
+      display: block;
+      margin: 10px 0;
+      padding: 12px;
+      background-color: #0066cc;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .links a:hover {
+      background-color: #004a99;
+    }
+    .info {
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .lang-toggle button {
+      margin: 0 10px;
+      padding: 8px 16px;
+      background-color: #0066cc;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .lang-toggle button:hover {
+      background-color: #004a99;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-toggle">
+      <button id="btn-en">English</button>
+      <button id="btn-hi">हिन्दी</button>
+    </div>
+
+    <h1 id="title-en">Useful Links – eSaral</h1>
+    <h1 id="title-hi" class="hidden">उपयोगी लिंक – eSaral</h1>
+
+    <div class="info">
+      <p id="info-en">
+        The <strong>eSaral</strong> website provides free PDF downloads of NCERT books for various classes, along with supporting material such as solutions and study guidance. It is a valuable resource for students preparing for board exams and competitive exams alike.  
+      </p>
+      <p id="info-hi" class="hidden">
+        <strong>eSaral</strong> वेबसाइट विभिन्न कक्षाओं के लिए NCERT पुस्तकों का मुफ्त PDF डाउनलोड प्रदान करती है, साथ ही समाधान और अध्ययन मार्गदर्शन जैसे सहायक सामग्री भी। यह बोर्ड परीक्षा और प्रतियोगी परीक्षाओं की तैयारी करने वाले छात्रों के लिए एक मूल्यवान संसाधन है।
+      </p>
+    </div>
+
+    <div class="links">
+      <a href="https://www.esaral.com/ncert-books/ncert-books-class-10/" target="_blank" id="link1-en">
+        NCERT Books for Class 10 (PDF) – eSaral
+      </a>
+      
+
+      <a href="https://www.esaral.com/ncert-class-12-books-pdf-download/" target="_blank" id="link2-en">
+        NCERT Books for Class 12 (PDF) – eSaral
+      </a>
+    
+    </div>
+  </div>
+
+  <script>
+    const btnEn = document.getElementById('btn-en');
+    const btnHi = document.getElementById('btn-hi');
+
+    const elsEn = document.querySelectorAll('#title-en, #info-en, #link1-en, #link2-en');
+    const elsHi = document.querySelectorAll('#title-hi, #info-hi, #link1-hi, #link2-hi');
+
+    btnEn.addEventListener('click', () => {
+      elsEn.forEach(el => el.classList.remove('hidden'));
+      elsHi.forEach(el => el.classList.add('hidden'));
+    });
+
+    btnHi.addEventListener('click', () => {
+      elsHi.forEach(el => el.classList.remove('hidden'));
+      elsEn.forEach(el => el.classList.add('hidden'));
+    });
+  </script>
+</body>
+</html>

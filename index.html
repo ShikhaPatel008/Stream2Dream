@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stream2Dream - Career Guidance</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9fbff;
+      color: #1e293b;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #ffffff;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #0a3d91;
+    }
+
+    p.subtitle {
+      color: #475569;
+      margin: 10px 0 30px;
+      font-size: 1.1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background-color: #0a3d91;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button.secondary {
+      background-color: #e2e8f0;
+      color: #0a3d91;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background-color: #0055cc;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0a3d91;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      text-align: center;
+      width: 200px;
+    }
+
+    .step-icon {
+      font-size: 40px;
+      color: #0a3d91;
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      padding: 25px;
+      width: 320px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #0a3d91;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .card button {
+      width: 100%;
+      margin: 8px 0;
+      background-color: #0a3d91;
+    }
+
+    .card button:hover {
+      background-color: #0055cc;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .feature {
+      width: 250px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 35px;
+      color: #0a3d91;
+      margin-bottom: 10px;
+    }
+
+    /* Language dropdown */
+    .language-dropdown {
+      display: none;
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px;
+      position: absolute;
+      margin-top: 5px;
+    }
+
+    .language-dropdown button {
+      background: none;
+      color: #0a3d91;
+      border: none;
+      text-align: left;
+      width: 100%;
+      font-size: 1rem;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .language-dropdown button:hover {
+      background-color: #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="title">Find Your Perfect Stream and Career Path — Guided by Experts</h1>
+    <p class="subtitle" id="subtitle">
+      Get personalized recommendations based on your interests and goals.
+    </p>
+    <div class="btn-group">
+      <button onclick="navigate('quiz.html')" id="btnQuiz">Take Stream Selection Quiz</button>
+      <button class="secondary" onclick="navigate('career.html')" id="btnCareer">Explore Career Options</button>
+    </div>
+  </header>
+
+  <section>
+    <h2 id="howItWorks">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">🔍</div>
+        <h4 id="discoverTitle">Discover</h4>
+        <p id="discoverDesc">Take the interest & aptitude quiz</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">📋</div>
+        <h4 id="decideTitle">Decide</h4>
+        <p id="decideDesc">Get personalized stream or career suggestions</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">🎓</div>
+        <h4 id="developTitle">Develop</h4>
+        <p id="developDesc">Learn skills</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3 id="forStudents">For Students (9th–10th)</h3>
+        <button onclick="navigate('quiz.html')" id="streamQuiz">Stream Selection Quiz</button>
+        <button onclick="navigate('stream.html')" id="exploreStream">Explore Science / Commerce / Arts / Vocational Streams</button>
+        <button onclick="navigate('exam-info.html')" id="examInfo">Scholarship and Exam Information</button>
+      </div>
+
+      <div class="card">
+        <h3 id="forJobSeekers">For Job Seekers</h3>
+        <button onclick="navigate('skills-test.html')" id="careerTest">Career Personality Test</button>
+        <button onclick="navigate('resume.html')" id="resumeBuilder">Resume Builder</button>
+        <button onclick="navigate('skills-hub.html')" id="skillHub">Skill Development Hub</button>
+      </div>
+    </div>
+
+    <h2 id="aim">We aim to bring equal career opportunities to every student — rural or urban</h2>
+
+    <div class="features">
+      <div class="feature" onclick="navigate('learning.html')">
+        <div class="feature-icon">🌐</div>
+        <p id="learning">Internet-based Learning</p>
+      </div>
+
+      <div class="feature" onclick="toggleLanguageMenu()">
+        <div class="feature-icon">🗣</div>
+        <p id="bilingualContent">Bilingual Content (English + Hindi)</p>
+        <div class="language-dropdown" id="languageDropdown">
+          <button onclick="setLanguage('en')">English</button>
+          <button onclick="setLanguage('hi')">हिन्दी</button>
+        </div>
+      </div>
+
+      <div class="feature" onclick="navigate('pdf-resources.html')">
+        <div class="feature-icon">📘</div>
+        <p id="freeResources">Free Resources & Offline Access</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function navigate(url) {
+      window.location.href = url;
+    }
+
+    function toggleLanguageMenu() {
+      const dropdown = document.getElementById("languageDropdown");
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function setLanguage(lang) {
+      const content = {
+        en: {
+          title: "Find Your Perfect Stream and Career Path — Guided by Experts",
+          subtitle: "Get personalized recommendations based on your interests and goals.",
+          howItWorks: "How It Works",
+          discoverTitle: "Discover",
+          discoverDesc: "Take the interest & aptitude quiz",
+          decideTitle: "Decide",
+          decideDesc: "Get personalized stream or career suggestions",
+          developTitle: "Develop",
+          developDesc: "Learn skills & connect with mentors",
+          forStudents: "For Students (9th–10th)",
+          forJobSeekers: "For Job Seekers",
+          aim: "We aim to bring equal career opportunities to every student — rural or urban",
+          internetLearning: "Internet-based Learning",
+          bilingualContent: "Bilingual Content (English + Hindi)",
+          freeResources: "Free Resources & Offline Access"
+        },
+        hi: {
+          title: "अपना सही विषय और करियर पथ खोजें — विशेषज्ञों द्वारा मार्गदर्शन",
+          subtitle: "अपने रुचियों और लक्ष्यों के आधार पर व्यक्तिगत सुझाव प्राप्त करें।",
+          howItWorks: "यह कैसे काम करता है",
+          discoverTitle: "खोजें",
+          discoverDesc: "रुचि और योग्यता परीक्षण लें",
+          decideTitle: "निर्णय लें",
+          decideDesc: "व्यक्तिगत विषय या करियर सुझाव प्राप्त करें",
+          developTitle: "विकसित करें",
+          developDesc: "कौशल सीखें और मेंटर्स से जुड़ें",
+          forStudents: "छात्रों के लिए (9वीं–10वीं)",
+          forJobSeekers: "नौकरी चाहने वालों के लिए",
+          aim: "हम हर छात्र — ग्रामीण या शहरी — को समान करियर अवसर प्रदान करने का लक्ष्य रखते हैं",
+          internetLearning: "इंटरनेट आधारित शिक्षा",
+          bilingualContent: "द्विभाषी सामग्री (अंग्रेज़ी + हिन्दी)",
+          freeResources: "नि:शुल्क संसाधन और ऑफलाइन पहुँच"
+        },
+      };
+
+      const selected = content[lang];
+      for (const key in selected) {
+        document.getElementById(key).innerText = selected[key];
+      }
+
+      document.getElementById("languageDropdown").style.display = "none";
+      
+    }
+    document.getElementById("btnQuiz").addEventListener("click",function(){
+        window.location.href = "quiz.html";
+    })
+
+    document.getElementById("careerTest").addEventListener("click",function(){
+        windows.location.href = "skills-test.html";
+    })
+
+    document.getElementById("exploreStream").addEventListener("click",function(){
+        windows.location.href = "stream.html";
+    })
+    document.getElementById("resumeBuilder").addEventListener("click",function(){
+        windows.location.href = "resume.html";
+    })
+    document.getElementById("examInfo").addEventListener("click",function(){
+        windows.location.href = "exam-info.html";
+    })
+    document.getElementById("learning").addEventListener("click",function(){
+        windows.location.href = "learning.html";
+    })
+    document.getElementById("skillHub").addEventListener("click",function(){
+        windows.location.href = "skills-hub.html";
+    })
+    document.getElementById("freeResources").addEventListener("click",function(){
+        windows.location.href = "pdf-resources.html";
+    })
+
+
+  </script>
+</body>
+</html>

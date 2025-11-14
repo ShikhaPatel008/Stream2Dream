@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Career Options After 12th Commerce</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #e8f0ff, #ffffff);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #133e77;
+      color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .lang-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: #fff;
+      color: #133e77;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .lang-btn:hover {
+      background: #e6edf9;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      color: #004aad;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      margin: 0.5rem 0;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="title">Best Career Options After 12th Commerce</h1>
+    <p id="subtitle">Explore rewarding career paths after completing your 12th in Commerce</p>
+    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">हिंदी में देखें</button>
+  </header>
+
+  <div class="container" id="careerContainer"></div>
+
+  <script>
+    const data = {
+      en: {
+        title: "Best Career Options After 12th Commerce",
+        subtitle: "Explore rewarding career paths after completing your 12th in Commerce",
+        btn: "हिंदी में देखें",
+        cards: [
+          { h2: "1. Chartered Accountancy (CA)", p: "Chartered Accountancy involves auditing, taxation, and financial management. CAs maintain financial integrity and advise on business decisions.", details: [
+            ["Course:", "Chartered Accountancy (CA)"],
+            ["Duration:", "5 years"],
+            ["Eligibility:", "10+2 (any stream); must clear CA Foundation"],
+            ["Average Salary:", "₹6–15 LPA"],
+            ["Top Recruiters:", "Deloitte, PwC, KPMG, EY, ICICI Bank"]
+          ] },
+          { h2: "2. Bachelor of Commerce (B.Com)", p: "B.Com builds a strong base in accounting, economics, and business law—ideal for careers in finance, banking, or management.", details: [
+            ["Course:", "Bachelor of Commerce (B.Com)"],
+            ["Duration:", "3 years"],
+            ["Eligibility:", "10+2 (Commerce preferred)"],
+            ["Average Salary:", "₹3–6 LPA"],
+            ["Top Recruiters:", "HDFC Bank, Deloitte, Wipro"]
+          ] },
+          { h2: "3. Company Secretary (CS)", p: "Company Secretaries ensure legal and regulatory compliance, corporate governance, and decision-making.", details: [
+            ["Course:", "Company Secretary (CS)"],
+            ["Duration:", "3–4 years"],
+            ["Eligibility:", "10+2 (any stream); must clear CS Foundation"],
+            ["Average Salary:", "₹4–10 LPA"],
+            ["Top Recruiters:", "Reliance Industries, Tata Group, Infosys"]
+          ] },
+          { h2: "4. Business Management (BBA)", p: "BBA trains students in management, communication, and leadership—perfect for those aiming to run businesses or join corporate roles.", details: [
+            ["Course:", "Bachelor of Business Administration (BBA)"],
+            ["Duration:", "3 years"],
+            ["Eligibility:", "10+2 (any stream)"],
+            ["Average Salary:", "₹4–8 LPA"],
+            ["Top Recruiters:", "Deloitte, Amazon, Mahindra Group"]
+          ] },
+          { h2: "5. Finance and Investment Analyst", p: "Analyse financial data, track markets, and advise clients to make smart investment decisions.", details: [
+            ["Course:", "BBA / B.Com / BA (Finance)"],
+            ["Duration:", "3–4 years"],
+            ["Eligibility:", "10+2 with Mathematics or Commerce"],
+            ["Average Salary:", "₹5–12 LPA"],
+            ["Top Recruiters:", "Goldman Sachs, JP Morgan, ICICI Securities"]
+          ] },
+          { h2: "6. Actuarial Science", p: "Applies maths and statistics to predict future financial risks. A top-paying profession in insurance and finance.", details: [
+            ["Course:", "B.Sc / B.Com in Actuarial Science"],
+            ["Duration:", "3–5 years"],
+            ["Eligibility:", "10+2 with Mathematics and English"],
+            ["Average Salary:", "₹7–15 LPA"],
+            ["Top Recruiters:", "LIC, Deloitte, HDFC Life"]
+          ] },
+          { h2: "7. Cost and Management Accountancy (CMA)", p: "CMA professionals handle cost control, budgeting, and financial efficiency in organisations.", details: [
+            ["Course:", "CMA"],
+            ["Duration:", "3–4 years"],
+            ["Eligibility:", "10+2 (any stream)"],
+            ["Average Salary:", "₹6–12 LPA"],
+            ["Top Recruiters:", "Infosys, ITC, Indian Oil, Deloitte"]
+          ] },
+          { h2: "8. Human Resource Management", p: "HR Managers recruit, train, and manage employees, ensuring workplace harmony and productivity.", details: [
+            ["Course:", "BBA / BA in HR Management"],
+            ["Duration:", "3 years"],
+            ["Eligibility:", "10+2 (any stream)"],
+            ["Average Salary:", "₹4–8 LPA"],
+            ["Top Recruiters:", "IBM, Accenture, Infosys"]
+          ] },
+          { h2: "9. Digital Marketing", p: "Digital Marketing promotes brands through online platforms, social media, and SEO. Great for creative thinkers.", details: [
+            ["Course:", "BBA in Digital Marketing / Certifications"],
+            ["Duration:", "6 months – 3 years"],
+            ["Eligibility:", "10+2 (any stream)"],
+            ["Average Salary:", "₹3–10 LPA"],
+            ["Top Recruiters:", "Google, Meta, Wipro Digital"]
+          ] },
+          { h2: "10. Economics and Statistics", p: "Study data, markets, and policies to work in finance, government, and research sectors.", details: [
+            ["Course:", "BA / B.Sc in Economics and Statistics"],
+            ["Duration:", "3 years"],
+            ["Eligibility:", "10+2 with Maths / Economics"],
+            ["Average Salary:", "₹4–9 LPA"],
+            ["Top Recruiters:", "RBI, NITI Aayog, World Bank"]
+          ] }
+        ]
+      },
+
+      hi: {
+        title: "12वीं कॉमर्स के बाद सर्वश्रेष्ठ करियर विकल्प",
+        subtitle: "12वीं कॉमर्स पूरी करने के बाद मिलने वाले बेहतरीन करियर अवसरों की जानकारी",
+        btn: "View in English",
+        cards: [
+          { h2: "1. चार्टर्ड अकाउंटेंसी (CA)", p: "चार्टर्ड अकाउंटेंसी में ऑडिट, टैक्सेशन और वित्तीय प्रबंधन शामिल हैं। सीए व्यवसायिक निर्णयों में सलाह देते हैं।", details: [
+            ["कोर्स:", "चार्टर्ड अकाउंटेंसी (CA)"],
+            ["अवधि:", "5 वर्ष"],
+            ["योग्यता:", "10+2 किसी भी स्ट्रीम से; CA फाउंडेशन परीक्षा उत्तीर्ण करनी होगी"],
+            ["औसत वेतन:", "₹6–15 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "Deloitte, PwC, KPMG, EY, ICICI Bank"]
+          ] },
+          { h2: "2. बैचलर ऑफ कॉमर्स (B.Com)", p: "बी.कॉम में लेखांकन, अर्थशास्त्र और व्यावसायिक कानून का अध्ययन होता है — वित्त और बैंकिंग में करियर के लिए आदर्श।", details: [
+            ["कोर्स:", "बैचलर ऑफ कॉमर्स (B.Com)"],
+            ["अवधि:", "3 वर्ष"],
+            ["योग्यता:", "10+2 (कॉमर्स वांछनीय)"],
+            ["औसत वेतन:", "₹3–6 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "HDFC Bank, Deloitte, Wipro"]
+          ] },
+          { h2: "3. कंपनी सेक्रेटरी (CS)", p: "कंपनी सेक्रेटरी कानूनी और नियामक अनुपालन सुनिश्चित करते हैं तथा कॉर्पोरेट गवर्नेंस का ध्यान रखते हैं।", details: [
+            ["कोर्स:", "कंपनी सेक्रेटरी (CS)"],
+            ["अवधि:", "3–4 वर्ष"],
+            ["योग्यता:", "10+2 किसी भी स्ट्रीम से; CS फाउंडेशन उत्तीर्ण"],
+            ["औसत वेतन:", "₹4–10 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "Reliance Industries, Tata Group, Infosys"]
+          ] },
+          { h2: "4. बिजनेस मैनेजमेंट (BBA)", p: "बीबीए छात्रों को प्रबंधन, नेतृत्व और संचार कौशल सिखाता है — कॉर्पोरेट भूमिकाओं के लिए उपयुक्त।", details: [
+            ["कोर्स:", "बैचलर ऑफ बिजनेस एडमिनिस्ट्रेशन (BBA)"],
+            ["अवधि:", "3 वर्ष"],
+            ["योग्यता:", "10+2 किसी भी स्ट्रीम से"],
+            ["औसत वेतन:", "₹4–8 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "Deloitte, Amazon, Mahindra Group"]
+          ] },
+          { h2: "5. वित्त और निवेश विश्लेषक", p: "वित्तीय डेटा का विश्लेषण कर निवेश के बेहतर निर्णय लेने में सहायता करना।", details: [
+            ["कोर्स:", "BBA / B.Com / BA (Finance)"],
+            ["अवधि:", "3–4 वर्ष"],
+            ["योग्यता:", "10+2 (गणित या कॉमर्स)"],
+            ["औसत वेतन:", "₹5–12 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "Goldman Sachs, JP Morgan, ICICI Securities"]
+          ] },
+          { h2: "6. एक्चुरियल साइंस", p: "गणित और सांख्यिकी के माध्यम से वित्तीय जोखिमों का विश्लेषण करना — बीमा और वित्त क्षेत्र का उच्च वेतन वाला पेशा।", details: [
+            ["कोर्स:", "B.Sc / B.Com in Actuarial Science"],
+            ["अवधि:", "3–5 वर्ष"],
+            ["योग्यता:", "10+2 (गणित और अंग्रेजी)"],
+            ["औसत वेतन:", "₹7–15 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "LIC, Deloitte, HDFC Life"]
+          ] },
+          { h2: "7. कॉस्ट एंड मैनेजमेंट अकाउंटेंसी (CMA)", p: "CMA पेशेवर संगठन में लागत नियंत्रण और वित्तीय दक्षता का ध्यान रखते हैं।", details: [
+            ["कोर्स:", "CMA"],
+            ["अवधि:", "3–4 वर्ष"],
+            ["योग्यता:", "10+2 किसी भी स्ट्रीम से"],
+            ["औसत वेतन:", "₹6–12 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "Infosys, ITC, Indian Oil, Deloitte"]
+          ] },
+          { h2: "8. ह्यूमन रिसोर्स मैनेजमेंट", p: "एचआर मैनेजर भर्ती, प्रशिक्षण और कर्मचारियों के प्रबंधन का कार्य करते हैं।", details: [
+            ["कोर्स:", "BBA / BA in HR Management"],
+            ["अवधि:", "3 वर्ष"],
+            ["योग्यता:", "10+2 किसी भी स्ट्रीम से"],
+            ["औसत वेतन:", "₹4–8 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "IBM, Accenture, Infosys"]
+          ] },
+          { h2: "9. डिजिटल मार्केटिंग", p: "डिजिटल मार्केटिंग ऑनलाइन प्लेटफ़ॉर्म और सोशल मीडिया के माध्यम से ब्रांड को बढ़ावा देती है।", details: [
+            ["कोर्स:", "BBA in Digital Marketing / प्रमाणपत्र कोर्स"],
+            ["अवधि:", "6 महीने – 3 वर्ष"],
+            ["योग्यता:", "10+2 किसी भी स्ट्रीम से"],
+            ["औसत वेतन:", "₹3–10 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "Google, Meta, Wipro Digital"]
+          ] },
+          { h2: "10. अर्थशास्त्र और सांख्यिकी", p: "डेटा, बाजार और नीतियों का अध्ययन कर वित्त और अनुसंधान क्षेत्र में कार्य करना।", details: [
+            ["कोर्स:", "BA / B.Sc in Economics and Statistics"],
+            ["अवधि:", "3 वर्ष"],
+            ["योग्यता:", "10+2 (गणित / अर्थशास्त्र)"],
+            ["औसत वेतन:", "₹4–9 लाख प्रति वर्ष"],
+            ["शीर्ष भर्तीकर्ता:", "RBI, NITI Aayog, World Bank"]
+          ] }
+        ]
+      }
+    };
+
+    let lang = "en";
+
+    function render() {
+      const d = data[lang];
+      document.getElementById("title").innerText = d.title;
+      document.getElementById("subtitle").innerText = d.subtitle;
+      document.getElementById("langBtn").innerText = d.btn;
+
+      const container = document.getElementById("careerContainer");
+      container.innerHTML = d.cards.map(card => `
+        <div class="card">
+          <h2>${card.h2}</h2>
+          <p>${card.p}</p>
+          ${card.details.map(([key,val]) => `<p><span class="highlight">${key}</span> ${val}</p>`).join("")}
+        </div>
+      `).join("");
+    }
+
+    function toggleLanguage() {
+      lang = lang === "en" ? "hi" : "en";
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>

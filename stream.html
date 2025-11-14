@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Streams | Stream2Dream</title>
+  <link rel="stylesheet" href="stream.css">
+</head>
+<body>
+  <header>
+    <h1>Explore Streams / विषयों की जानकारी</h1>
+    <nav>
+      <button onclick="window.location.href='index.html'">🏠 Home</button>
+      <button id="langToggle">🌐 Hindi</button>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <p class="eng">
+      Learn about various academic streams to make an informed choice for your future.
+      Click “Know More” to explore career paths, subjects, and opportunities.
+    </p>
+    <p class="hin hidden">
+      विभिन्न शैक्षणिक धाराओं के बारे में जानें और अपने भविष्य के लिए सही निर्णय लें।
+      “अधिक जानें” पर क्लिक करें ताकि आप विषयों और करियर अवसरों को समझ सकें।
+    </p>
+  </section>
+
+  <section class="streams">
+    <div class="stream-card" id="science">
+      <h2>Science / विज्ञान</h2>
+      <p class="eng">
+        Physics, Chemistry, Biology & Maths — foundation for Engineering, Medicine, Research & more.
+      </p>
+      <p class="hin hidden">
+        भौतिकी, रसायन, जीवविज्ञान और गणित — इंजीनियरिंग, चिकित्सा और अनुसंधान की नींव हैं।
+      </p>
+      <button onclick="navigateTo('science.html')" id = "science">Know More / अधिक जानें</button>
+    </div>
+
+    <div class="stream-card" id="commerce">
+      <h2>Commerce / वाणिज्य</h2>
+      <p class="eng">
+        Learn finance, accounting, and economics for a career in business, banking, or management.
+      </p>
+      <p class="hin hidden">
+        वित्त, लेखा और अर्थशास्त्र सीखें — व्यवसाय, बैंकिंग या प्रबंधन में करियर बनाएं।
+      </p>
+      <button onclick="navigateTo('commerce.html')" id = "commerce">Know More / अधिक जानें</button>
+    </div>
+
+    <div class="stream-card" id="arts">
+      <h2>Arts / कला</h2>
+      <p class="eng">
+        Subjects like History, Psychology & Literature prepare you for civil services & media careers.
+      </p>
+      <p class="hin hidden">
+        इतिहास, मनोविज्ञान और साहित्य जैसे विषय सिविल सेवा और मीडिया करियर के लिए उपयुक्त हैं।
+      </p>
+      <button onclick="navigateTo('arts.html')" id = "arts">Know More / अधिक जानें</button>
+    </div>
+
+    <div class="stream-card" id="vocational">
+      <h2>Vocational / व्यावसायिक</h2>
+      <p class="eng">
+        Focused on practical skills — IT, Tourism, Healthcare, and Electronics for direct employment.
+      </p>
+      <p class="hin hidden">
+        व्यावहारिक कौशल जैसे आईटी, पर्यटन, स्वास्थ्य सेवा और इलेक्ट्रॉनिक्स पर केंद्रित।
+      </p>
+      <button onclick="navigateTo('vocational.html')" id = "vocational">Know More / अधिक जानें</button>
+    </div>
+
+    <div class="stream-card" id="literature">
+      <h2>Literature / साहित्य</h2>
+      <p class="eng">
+        Explore the art of writing, culture, and languages — ideal for creative and academic careers.
+      </p>
+      <p class="hin hidden">
+        लेखन, संस्कृति और भाषा की कला का अध्ययन — सृजनात्मक और शैक्षणिक करियर के लिए उपयुक्त।
+      </p>
+      <button onclick="navigateTo('literature.html')" id = "literature">Know More / अधिक जानें</button>
+    </div>
+
+    <div class="stream-card" id="agriculture">
+      <h2>Agriculture / कृषि</h2>
+      <p class="eng">
+        Study soil, crops, and food science — career options in Agri-Tech and research sectors.
+      </p>
+      <p class="hin hidden">
+        मृदा, फसलों और खाद्य विज्ञान का अध्ययन — एग्री-टेक और अनुसंधान में अवसर।
+      </p>
+      <button onclick="navigateTo('agriculture.html')" id = "agriculture">Know More / अधिक जानें</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Stream2Dream | Learn. Decide. Succeed.</p>
+  </footer>
+
+  <script src="stream.js"></script>
+</body>
+</html>

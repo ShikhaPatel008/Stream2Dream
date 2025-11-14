@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open Skill & Course Links | कौशल एवं पाठ्यक्रम लिंक</title>
+  <style>
+    :root{
+      --bg:#f4f8ff;
+      --card:#ffffff;
+      --accent:#054497;
+      --muted:#6b7280;
+      --shadow: 0 8px 20px rgba(11,99,214,0.08);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#eef6ff 0%,var(--bg) 100%);
+      padding:32px;
+    }
+    .wrap{
+      width:100%;
+      max-width:900px;
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:16px;
+    }
+    h1{
+      font-size:20px;
+      margin:0;
+      color:#072047;
+    }
+    p.lead{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .controls{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    button{
+      background:var(--accent);
+      color:white;
+      border:0;
+      padding:10px 14px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:14px;
+      box-shadow: 0 6px 14px rgba(11,99,214,0.12);
+    }
+    button.ghost{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(11,99,214,0.12);
+      box-shadow:none;
+      font-weight:600;
+    }
+    ul.links{
+      list-style:none;
+      padding:0;
+      margin:18px 0 8px 0;
+      display:grid;
+      gap:10px;
+    }
+    li.card{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px;
+      border-radius:10px;
+      background:linear-gradient(180deg,rgba(11,99,214,0.03), rgba(11,99,214,0.01));
+      border:1px solid rgba(11,99,214,0.04);
+    }
+    .left{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .favicon{
+      width:44px;
+      height:44px;
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:white;
+      background:linear-gradient(135deg,#0a4a9e,#1361a9);
+      flex-shrink:0;
+    }
+    .meta{
+      min-width:0;
+    }
+    .title{
+      font-weight:700;
+      font-size:15px;
+      color:#072047;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:520px;
+    }
+    .url{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      max-width:520px;
+    }
+    .actions{ display:flex; gap:8px; align-items:center; }
+    .msg{
+      margin-top:12px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .small{
+      font-size:12px;
+      color:var(--muted);
+    }
+    @media (max-width:640px){
+      .title{ max-width:300px; }
+      .url{ max-width:300px; }
+      header{ flex-direction:column; align-items:flex-start; gap:8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div>
+        <h1 id="pageTitle">Skill & Course Portals</h1>
+        <p class="lead" id="pageLead">Quick access to popular skill-development and MOOC portals.</p>
+      </div>
+      <div class="controls" aria-hidden="false">
+        <button id="langToggleBtn" class="ghost" title="Switch Language">हिंदी</button>
+        <button id="openAllBtn" title="Open all links in new tabs/windows">Open All</button>
+        <button id="openAllSameBtn" class="ghost" title="Open all links in the same tab (will replace current page)">Open All (same tab)</button>
+      </div>
+    </header>
+
+    <ul class="links" id="linksList"></ul>
+
+    <div class="msg" id="message">
+      Tip: Clicking <strong>Open All</strong> opens links in new tabs. If your browser blocks popups, use the individual "Open" buttons.
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const langData = {
+        en: {
+          title: "Skill & Course Portals",
+          lead: "Quick access to popular skill-development and MOOC portals.",
+          openAll: "Open All",
+          openAllSame: "Open All (same tab)",
+          msgTip: "Tip: Clicking Open All opens links in new tabs. If your browser blocks popups, use the individual 'Open' buttons.",
+          confirmMsg: "This will open the first link and replace this page. Continue?",
+          openedAll: "All links attempted to open. Check your new tabs.",
+          openedSome: n => `${n} tabs opened. Your browser may have blocked the rest — use the individual Open buttons.`,
+          blocked: "Your browser blocked the popups. Use the individual 'Open' links or allow popups for this page.",
+          langBtn: "हिंदी"
+        },
+        hi: {
+          title: "कौशल एवं पाठ्यक्रम पोर्टल",
+          lead: "लोकप्रिय कौशल-विकास और एमओओसी पोर्टलों तक त्वरित पहुँच।",
+          openAll: "सभी खोलें",
+          openAllSame: "सभी खोलें (उसी टैब में)",
+          msgTip: "सुझाव: 'सभी खोलें' पर क्लिक करने से लिंक नई टैब में खुलेंगे। यदि आपका ब्राउज़र पॉपअप को रोकता है, तो व्यक्तिगत 'खोलें' बटन का उपयोग करें।",
+          confirmMsg: "यह पहला लिंक उसी टैब में खोलेगा और यह पेज बदल जाएगा। क्या आप जारी रखना चाहते हैं?",
+          openedAll: "सभी लिंक खोलने का प्रयास किया गया। अपने नए टैब देखें।",
+          openedSome: n => `${n} टैब खुले। कुछ पॉपअप आपके ब्राउज़र ने ब्लॉक किए हो सकते हैं — व्यक्तिगत 'खोलें' बटन का उपयोग करें।`,
+          blocked: "आपके ब्राउज़र ने पॉपअप को ब्लॉक किया। कृपया व्यक्तिगत लिंक खोलें या पॉपअप की अनुमति दें।",
+          langBtn: "English"
+        }
+      };
+
+      let currentLang = 'en';
+
+      const links = [
+        { title: "NPTEL", url: "https://nptel.ac.in/" },
+        { title: "SWAYAM", url: "https://swayam.gov.in/" },
+        { title: "Coursera", url: "https://www.coursera.org" },
+        { title: "edX", url: "https://www.edx.org/" },
+        { title: "National Digital Library of India (NDLI)", url: "https://www.ndl.gov.in" },
+        { title: "Simplilearn SkillUp", url: "https://www.simplilearn.com/skillup-free-online-courses" },
+        { title: "Skill India Digital Hub", url: "https://www.skillindiadigital.gov.in/courses" }
+      ];
+
+      const list = document.getElementById('linksList');
+      const msg = document.getElementById('message');
+
+      function renderLinks(){
+        list.innerHTML = '';
+        links.forEach((item, idx) => {
+          const li = document.createElement('li');
+          li.className = 'card';
+          li.innerHTML = `
+            <div class="left">
+              <div class="favicon" aria-hidden="true">${item.title.split(" ").map(w=>w[0]||"").slice(0,2).join("")}</div>
+              <div class="meta">
+                <div class="title">${item.title}</div>
+                <div class="url">${item.url}</div>
+              </div>
+            </div>
+            <div class="actions">
+              <a class="small" href="${item.url}" target="_blank" rel="noopener noreferrer" title="Open ${item.title} in new tab">${currentLang==='en'?'Open in new tab':'नई टैब में खोलें'}</a>
+              <button data-idx="${idx}" title="Open ${item.title}">${currentLang==='en'?'Open':'खोलें'}</button>
+            </div>
+          `;
+          list.appendChild(li);
+        });
+      }
+
+      function applyLanguage(lang){
+        const t = langData[lang];
+        document.getElementById('pageTitle').textContent = t.title;
+        document.getElementById('pageLead').textContent = t.lead;
+        document.getElementById('openAllBtn').textContent = t.openAll;
+        document.getElementById('openAllSameBtn').textContent = t.openAllSame;
+        document.getElementById('langToggleBtn').textContent = t.langBtn;
+        msg.textContent = t.msgTip;
+        renderLinks();
+      }
+
+      // Initialize
+      renderLinks();
+
+      // Handle individual open
+      list.addEventListener('click', function(e){
+        if(e.target.tagName === 'BUTTON'){
+          const idx = e.target.getAttribute('data-idx');
+          if(idx === null) return;
+          const url = links[Number(idx)].url;
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      });
+
+      // Open all
+      document.getElementById('openAllBtn').addEventListener('click', function(){
+        let opened = 0;
+        links.forEach(l => {
+          try {
+            const w = window.open(l.url, '_blank', 'noopener,noreferrer');
+            if (w) opened++;
+          } catch(err) {}
+        });
+        const t = langData[currentLang];
+        if(opened === links.length){
+          msg.textContent = t.openedAll;
+        } else if(opened > 0){
+          msg.textContent = t.openedSome(opened);
+        } else {
+          msg.textContent = t.blocked;
+        }
+      });
+
+      // Open all same tab
+      document.getElementById('openAllSameBtn').addEventListener('click', function(){
+        const t = langData[currentLang];
+        const proceed = confirm(t.confirmMsg);
+        if(!proceed) return;
+        window.location.href = links[0].url;
+      });
+
+      // Language toggle
+      document.getElementById('langToggleBtn').addEventListener('click', function(){
+        currentLang = currentLang === 'en' ? 'hi' : 'en';
+        applyLanguage(currentLang);
+      });
+
+      applyLanguage('en');
+    })();
+  </script>
+</body>
+</html>

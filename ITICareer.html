@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITI Courses & Career Guide</title>
+  <style>
+    /* --------------------------
+       GLOBAL STYLES
+    --------------------------- */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background-color: #f8fbff;
+      color: #0a2342;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #074490;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .lang-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #074490;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .lang-btn:hover {
+      background: #e5eeff;
+    }
+
+    nav {
+      background-color: #e7f0ff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #0a4a98;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #083a75;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 5px solid #06438d;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #07448e;
+      border-bottom: 2px solid #e7f0ff;
+      padding-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table th, table td {
+      border: 1px solid #d9e7ff;
+      padding: 10px;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #054490;
+      color: white;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f2f7ff;
+    }
+
+    .btn-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #08448f;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      font-size: 18px;
+    }
+
+    footer {
+      background-color: #0a4389;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">ITI Courses & Career Opportunities</h1>
+    <p id="subtitle">Your complete guide to technical training and future careers</p>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">हिंदी में देखें</button>
+  </header>
+
+  <nav id="navbar">
+    <a href="#about">About ITI</a>
+    <a href="#eligibility">Eligibility</a>
+    <a href="#trades">Trades</a>
+    <a href="#career">Career Options</a>
+    <a href="#salary">Salary</a>
+    <a href="#benefits">Benefits</a>
+  </nav>
+
+  <div class="container" id="content"></div>
+
+  <button class="btn-top" id="topBtn">↑</button>
+
+  <footer>
+    <p id="footerText">© 2025 Stream2Dream | Career Path Guidance</p>
+  </footer>
+
+  <script>
+    const data = {
+      en: {
+        title: "ITI Courses & Career Opportunities",
+        subtitle: "Your complete guide to technical training and future careers",
+        btn: "हिंदी में देखें",
+        footer: "© 2025 Stream2Dream | Career Path Guidance",
+        nav: ["About ITI", "Eligibility", "Trades", "Career Options", "Salary", "Benefits"],
+        sections: [
+          {
+            id: "about",
+            title: "What is ITI?",
+            content: `
+              Industrial Training Institutes (ITI) provide vocational training to students to help them become job-ready in various technical and non-technical fields. 
+              ITIs are managed by both government and private sectors, offering courses that focus on practical skills essential for industry jobs.
+            `
+          },
+          {
+            id: "eligibility",
+            title: "Eligibility & Course Duration",
+            table: [
+              ["Criteria", "Details"],
+              ["Minimum Qualification", "8th, 10th, or 12th pass (depending on trade)"],
+              ["Age Limit", "14 to 40 years"],
+              ["Admission Process", "Merit-based or entrance exam (varies by state)"],
+              ["Course Duration", "6 months to 2 years (depends on trade)"]
+            ]
+          },
+          {
+            id: "trades",
+            title: "Types of ITI Trades",
+            content: `
+              <h3>Engineering Trades (Technical)</h3>
+              <ul><li>Electrician</li><li>Fitter</li><li>Welder</li><li>Mechanic (Motor Vehicle, Diesel, AC, etc.)</li>
+              <li>Turner</li><li>Plumber</li><li>Draughtsman (Civil/Mechanical)</li><li>Electronics Mechanic</li></ul>
+              <h3>Non-Engineering Trades (Non-Technical)</h3>
+              <ul><li>Computer Operator & Programming Assistant (COPA)</li><li>Stenography (English/Hindi)</li>
+              <li>Sewing Technology</li><li>Fashion Design</li><li>Health Sanitary Inspector</li><li>Hospital Housekeeping</li></ul>
+            `
+          },
+          {
+            id: "career",
+            title: "Career Options After ITI",
+            content: `
+              <ul>
+                <li><strong>Government Jobs:</strong> Railways, Defence, PSUs like BHEL, NTPC, ONGC.</li>
+                <li><strong>Private Sector:</strong> Manufacturing, construction, electronics, and IT support.</li>
+                <li><strong>Apprenticeships:</strong> Practical experience with stipends under NAPS.</li>
+                <li><strong>Self-Employment:</strong> Open your own workshop, repair service, or tailoring unit.</li>
+                <li><strong>Higher Education:</strong> Polytechnic diploma (lateral entry) or advanced training.</li>
+              </ul>
+            `
+          },
+          {
+            id: "salary",
+            title: "Average Salary After ITI",
+            table: [
+              ["Job Type", "Starting Salary (Approx.)"],
+              ["Apprentice", "₹8,000 – ₹12,000 / month"],
+              ["Private Technician", "₹12,000 – ₹20,000 / month"],
+              ["Government Job", "₹25,000 – ₹40,000 / month + benefits"],
+              ["Self-Employed", "₹15,000 – ₹50,000 or more"]
+            ]
+          },
+          {
+            id: "benefits",
+            title: "Benefits of ITI Courses",
+            content: `
+              <ul>
+                <li>Short-term and affordable</li>
+                <li>Job-oriented with practical learning</li>
+                <li>Opportunities in both India & abroad</li>
+                <li>Early earning potential</li>
+                <li>Gateway to diploma and advanced technical education</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      hi: {
+        title: "आईटीआई कोर्स और करियर अवसर",
+        subtitle: "तकनीकी प्रशिक्षण और भविष्य के करियर की संपूर्ण जानकारी",
+        btn: "View in English",
+        footer: "© 2025 Stream2Dream | करियर मार्गदर्शन",
+        nav: ["आईटीआई क्या है", "पात्रता", "ट्रेड्स", "करियर विकल्प", "वेतन", "लाभ"],
+        sections: [
+          {
+            id: "about",
+            title: "आईटीआई क्या है?",
+            content: `
+              औद्योगिक प्रशिक्षण संस्थान (ITI) विद्यार्थियों को तकनीकी और गैर-तकनीकी क्षेत्रों में व्यावसायिक प्रशिक्षण प्रदान करते हैं ताकि वे नौकरी के लिए तैयार हो सकें। 
+              ये संस्थान सरकारी और निजी दोनों क्षेत्रों द्वारा संचालित होते हैं और इनमें उद्योग से संबंधित व्यावहारिक कौशल पर विशेष ध्यान दिया जाता है।
+            `
+          },
+          {
+            id: "eligibility",
+            title: "पात्रता और कोर्स की अवधि",
+            table: [
+              ["मानदंड", "विवरण"],
+              ["न्यूनतम योग्यता", "8वीं, 10वीं या 12वीं पास (ट्रेड पर निर्भर)"],
+              ["आयु सीमा", "14 से 40 वर्ष"],
+              ["प्रवेश प्रक्रिया", "मेरिट या प्रवेश परीक्षा (राज्य अनुसार)"],
+              ["कोर्स की अवधि", "6 महीने से 2 वर्ष (ट्रेड अनुसार)"]
+            ]
+          },
+          {
+            id: "trades",
+            title: "आईटीआई ट्रेड्स के प्रकार",
+            content: `
+              <h3>इंजीनियरिंग ट्रेड्स (तकनीकी)</h3>
+              <ul><li>इलेक्ट्रीशियन</li><li>फिटर</li><li>वेल्डर</li><li>मैकेनिक (मोटर वाहन, डीजल, एसी आदि)</li>
+              <li>टर्नर</li><li>प्लंबर</li><li>ड्राफ्ट्समैन (सिविल/मैकेनिकल)</li><li>इलेक्ट्रॉनिक्स मैकेनिक</li></ul>
+              <h3>गैर-इंजीनियरिंग ट्रेड्स (गैर-तकनीकी)</h3>
+              <ul><li>कंप्यूटर ऑपरेटर और प्रोग्रामिंग असिस्टेंट (COPA)</li><li>स्टेनोग्राफी (अंग्रेजी/हिंदी)</li>
+              <li>सिलाई तकनीक</li><li>फैशन डिजाइन</li><li>स्वास्थ्य निरीक्षक</li><li>हॉस्पिटल हाउसकीपिंग</li></ul>
+            `
+          },
+          {
+            id: "career",
+            title: "आईटीआई के बाद करियर विकल्प",
+            content: `
+              <ul>
+                <li><strong>सरकारी नौकरियाँ:</strong> रेलवे, रक्षा, बीएचईएल, एनटीपीसी, ओएनजीसी जैसे उपक्रम।</li>
+                <li><strong>निजी क्षेत्र:</strong> निर्माण, विनिर्माण, इलेक्ट्रॉनिक्स और आईटी सपोर्ट।</li>
+                <li><strong>प्रशिक्षण (Apprenticeship):</strong> एनएपीएस के तहत वजीफा सहित व्यावहारिक अनुभव।</li>
+                <li><strong>स्वरोजगार:</strong> अपना वर्कशॉप, मरम्मत सेवा या सिलाई इकाई शुरू करें।</li>
+                <li><strong>उच्च शिक्षा:</strong> पॉलीटेक्निक डिप्लोमा या एडवांस्ड ट्रेनिंग।</li>
+              </ul>
+            `
+          },
+          {
+            id: "salary",
+            title: "आईटीआई के बाद औसत वेतन",
+            table: [
+              ["नौकरी का प्रकार", "प्रारंभिक वेतन (लगभग)"],
+              ["प्रशिक्षु (Apprentice)", "₹8,000 – ₹12,000 / माह"],
+              ["निजी तकनीशियन", "₹12,000 – ₹20,000 / माह"],
+              ["सरकारी नौकरी", "₹25,000 – ₹40,000 / माह + लाभ"],
+              ["स्वरोजगार", "₹15,000 – ₹50,000 या अधिक"]
+            ]
+          },
+          {
+            id: "benefits",
+            title: "आईटीआई कोर्स के लाभ",
+            content: `
+              <ul>
+                <li>कम अवधि और सस्ती पढ़ाई</li>
+                <li>व्यावहारिक सीख के साथ रोजगारोन्मुख</li>
+                <li>भारत और विदेश दोनों में अवसर</li>
+                <li>जल्दी कमाई शुरू करने का मौका</li>
+                <li>डिप्लोमा या उच्च तकनीकी शिक्षा का मार्ग</li>
+              </ul>
+            `
+          }
+        ]
+      }
+    };
+
+    let lang = "en";
+
+    function render() {
+      const d = data[lang];
+      document.getElementById("title").innerText = d.title;
+      document.getElementById("subtitle").innerText = d.subtitle;
+      document.getElementById("langBtn").innerText = d.btn;
+      document.getElementById("footerText").innerText = d.footer;
+
+      const navLinks = document.querySelectorAll("nav a");
+      navLinks.forEach((a, i) => (a.innerText = d.nav[i]));
+
+      const content = d.sections.map(sec => {
+        if (sec.table) {
+          const rows = sec.table.map(
+            (r, i) =>
+              `<tr>${r.map((c, j) => `<${i === 0 ? "th" : "td"}>${c}</${i === 0 ? "th" : "td"}>`).join("")}</tr>`
+          ).join("");
+          return `<section id="${sec.id}"><h2>${sec.title}</h2><table>${rows}</table></section>`;
+        }
+        return `<section id="${sec.id}"><h2>${sec.title}</h2>${sec.content}</section>`;
+      }).join("");
+
+      document.getElementById("content").innerHTML = content;
+    }
+
+    function toggleLang() {
+      lang = lang === "en" ? "hi" : "en";
+      render();
+    }
+
+    render();
+
+    // Scroll-to-top functionality
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+      topBtn.style.display = (window.scrollY > 200) ? "block" : "none";
+    };
+    topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  </script>
+</body>
+</html>

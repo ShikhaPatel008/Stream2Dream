@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bilingual Career Guidance</title>
+  <style>
+    /* ---------- BASIC STYLING ---------- */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #e3f2ff, #cce0ff);
+      color: #002b5b;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, #003366, #0055cc);
+      color: white;
+      padding: 25px 10px;
+      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* ---------- CONTAINER ---------- */
+    .container {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      animation: slideIn 1.2s ease-in-out;
+    }
+
+    #intro {
+      font-size: 1.15em;
+      line-height: 1.6em;
+      margin-bottom: 25px;
+      color: #003366;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .language-toggle {
+      background: #0044cc;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .language-toggle:hover {
+      background: #002b8a;
+      transform: translateY(-2px);
+    }
+
+    .career-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .career-buttons button {
+      background: linear-gradient(90deg, #007bff, #00a8ff);
+      border: none;
+      color: white;
+      padding: 18px 35px;
+      font-size: 1em;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .career-buttons button:hover {
+      transform: scale(1.07);
+      background: linear-gradient(90deg, #0056b3, #4084cc);
+      box-shadow: 0 8px 25px rgba(0, 91, 255, 0.4);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.95em;
+      color: #333;
+      padding: 15px;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 600px) {
+      header { font-size: 1.6em; }
+      .career-buttons button {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="title">Career Options</header>
+
+  <div class="container">
+    <p id="intro">
+      Explore various career options after school. Click below to learn more about each stream.
+    </p>
+    <button class="language-toggle" onclick="toggleLanguage()">हिन्दी / English</button>
+
+    <div class="career-buttons">
+      <button onclick="goToPage('scienceCareer.html')" id="scienceCareer">Science Career</button>
+      <button onclick="goToPage('commerceCareer.html')" id="commerceCareer">Commerce Career</button>
+      <button onclick="goToPage('artsCareer.html')" id="artsCareer">Arts Career</button>
+      <button onclick="goToPage('vocationalCareer.html')" id="vocationalCareer">Vocational Career</button>
+      <button onclick="goToPage('agricultureCareer.html')" id="agricultureCareer">Agriculture Career</button>
+      <button onclick="goToPage('literatureCareer.html')" id="literatureCareer">Language & Literature Career</button>
+      <button onclick="goToPage('ITICareer.html')" id="ITICareer">ITI Career</button>
+    </div>
+  </div>
+
+  <footer id="footer">
+    From Stream to Dream — Guiding you towards your future.
+  </footer>
+
+  <script>
+    let isHindi = false;
+
+    const textContent = {
+      en: {
+        title: "Career Options",
+        intro: "Explore various career options after school. Click below to learn more about each stream.",
+        footer: "From Stream to Dream — Guiding you towards your future.",
+        buttons: [
+          "Science Career",
+          "Commerce Career",
+          "Arts Career",
+          "Vocational Career",
+          "Agriculture Career",
+          "Language & Literature Career",
+          "ITI career"
+        ]
+      },
+      hi: {
+        title: "कैरियर विकल्प",
+        intro: "स्कूल के बाद विभिन्न कैरियर विकल्पों को जानिए। प्रत्येक धारा के बारे में अधिक जानने के लिए नीचे क्लिक करें।",
+        footer: "Stream से Dream तक — आपके भविष्य की दिशा में मार्गदर्शन।",
+        buttons: [
+          "विज्ञान कैरियर",
+          "वाणिज्य कैरियर",
+          "कला कैरियर",
+          "व्यावसायिक कैरियर",
+          "कृषि कैरियर",
+          "भाषा और साहित्य कैरियर",
+          "आईटीआई कैरियर"
+        ]
+      }
+    };
+
+    function toggleLanguage() {
+      isHindi = !isHindi;
+      const lang = isHindi ? "hi" : "en";
+      document.getElementById("title").innerText = textContent[lang].title;
+      document.getElementById("intro").innerText = textContent[lang].intro;
+      document.getElementById("footer").innerText = textContent[lang].footer;
+
+      const buttons = document.querySelectorAll(".career-buttons button");
+      buttons.forEach((btn, index) => {
+        btn.innerText = textContent[lang].buttons[index];
+      });
+    }
+
+    function goToPage(page) {
+      window.location.href = page;
+    }
+    document.getElementById("scienceCareer").addEventListener("click",function(){
+        windows.location.href = "scienceCareer.html";
+    })
+    document.getElementById("commereceCareer").addEventListener("click",function(){
+        windows.location.href = "commerceCareer.html";
+    })
+    document.getElementById("artsCareer").addEventListener("click",function(){
+        windows.location.href = "artsCareer.html";
+    })
+    document.getElementById("vocationalCareer").addEventListener("click",function(){
+        windows.location.href = "vocationalCareer.html";
+    })
+    document.getElementById("agricultureCareer").addEventListener("click",function(){
+        windows.location.href = "agricultureCareer.html";
+    })
+    document.getElementById("literatureCareer").addEventListener("click",function(){
+        windows.location.href = "literatureCareer.html";
+    })
+    document.getElementById("ITICareer").addEventListener("click",function(){
+        windows.location.href = "ITICareer.html";
+    })
+
+  </script>
+</body>
+</html>

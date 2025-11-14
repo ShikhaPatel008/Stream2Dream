@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Stream2Dream</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #333;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: linear-gradient(135deg, #1e88e5, #1565c0);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      color: #ffeb3b;
+    }
+
+    p, li {
+      font-size: 1rem;
+      margin-top: 10px;
+      color: #f5f5f5;
+    }
+
+    ul {
+      margin-left: 25px;
+      margin-top: 10px;
+    }
+
+    li {
+      list-style-type: square;
+    }
+
+    blockquote {
+      font-style: italic;
+      color: #ffeb3b;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .highlight {
+      color: #ffeb3b;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #333;
+      opacity: 0.8;
+    }
+
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.3rem; }
+      .container { padding: 25px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lang-toggle">
+    <button onclick="toggleLanguage()">🌐 Switch to Hindi</button>
+  </div>
+
+  <div class="container" id="content">
+    <!-- English content (default) -->
+    <h1>🌐 About Stream2Dream</h1>
+    <p><span class="highlight">Stream2Dream</span> is an innovative education and career guidance platform designed to help students discover the perfect stream, course, and career path after school. It bridges the gap between career confusion and clarity through interactive tools, expert resources, and AI-based support.</p>
+    <p>Our mission is simple — to help every student choose smartly, confidently, and purposefully for their future.</p>
+
+    <h2>🎯 Our Vision</h2>
+    <p>To empower students across India with the knowledge, guidance, and tools they need to identify their passions and transform their dreams into successful careers — regardless of background, board, or location.</p>
+
+    <h2>💡 What Stream2Dream Offers</h2>
+    <p><b>1. 🎓 Career Stream Guidance</b><br>
+    Confused between Science, Commerce, and Arts? Our platform provides detailed insights into each stream — subjects, future scope, and matching career options — so you can make informed choices after Class 10th or 12th.</p>
+
+    <p><b>2. 🧩 Career Assessment Quiz</b><br>
+    Students can take our fun and insightful Career Quiz to understand their interests, strengths, and ideal career fields.</p>
+
+    <p><b>3. 💬 AI Chatbot – Stream2Dream Assistant</b><br>
+    Ask questions like “Which stream should I choose after 10th?” or “What are the top scholarships in India?” — and get instant answers!</p>
+
+    <h2>🏫 Our Motto</h2>
+    <blockquote>“Find Your Stream. Follow Your Dream.”</blockquote>
+  </div>
+
+  <footer>
+    © 2025 Stream2Dream | Empowering Career Choices
+  </footer>
+
+  <script>
+    let isHindi = false;
+
+    const englishContent = `
+      <h1>🌐 About Stream2Dream</h1>
+      <p><span class="highlight">Stream2Dream</span> is an innovative education and career guidance platform designed to help students discover the perfect stream, course, and career path after school. It bridges the gap between career confusion and clarity through interactive tools, expert resources, and AI-based support.</p>
+      <p>Our mission is simple — to help every student choose smartly, confidently, and purposefully for their future.</p>
+      <h2>🎯 Our Vision</h2>
+      <p>To empower students across India with the knowledge, guidance, and tools they need to identify their passions and transform their dreams into successful careers — regardless of background, board, or location.</p>
+      <h2>💡 What Stream2Dream Offers</h2>
+      <p><b>1. 🎓 Career Stream Guidance</b><br>Confused between Science, Commerce, and Arts? Our platform provides detailed insights into each stream — subjects, future scope, and matching career options — so you can make informed choices after Class 10th or 12th.</p>
+      <p><b>2. 🧩 Career Assessment Quiz</b><br>Students can take our fun and insightful Career Quiz to understand their interests, strengths, and ideal career fields.</p>
+      <p><b>3. 💬 AI Chatbot – Stream2Dream Assistant</b><br>Ask questions like “Which stream should I choose after 10th?” or “What are the top scholarships in India?” — and get instant answers!</p>
+      <h2>🏫 Our Motto</h2>
+      <blockquote>“Find Your Stream. Follow Your Dream.”</blockquote>
+    `;
+
+    const hindiContent = `
+      <h1>🌐 Stream2Dream के बारे में</h1>
+      <p><span class="highlight">Stream2Dream</span> एक नवाचारपूर्ण शिक्षा और करियर मार्गदर्शन मंच है जो छात्रों को स्कूल के बाद सही स्ट्रीम, कोर्स और करियर पथ खोजने में मदद करता है। यह इंटरएक्टिव टूल्स, विशेषज्ञ संसाधनों और एआई-आधारित समर्थन के माध्यम से करियर की उलझन और स्पष्टता के बीच की खाई को पाटता है।</p>
+      <p>हमारा मिशन सरल है — हर छात्र को अपने भविष्य के लिए समझदारी, आत्मविश्वास और उद्देश्यपूर्ण निर्णय लेने में सक्षम बनाना।</p>
+      <h2>🎯 हमारा दृष्टिकोण</h2>
+      <p>भारत भर के छात्रों को वह ज्ञान, मार्गदर्शन और उपकरण प्रदान करना जिनकी उन्हें अपनी रुचियों की पहचान करने और अपने सपनों को सफल करियर में बदलने के लिए आवश्यकता है — चाहे उनका पृष्ठभूमि, बोर्ड या स्थान कुछ भी हो।</p>
+      <h2>💡 Stream2Dream क्या प्रदान करता है</h2>
+      <p><b>1. 🎓 करियर स्ट्रीम मार्गदर्शन</b><br>साइंस, कॉमर्स और आर्ट्स के बीच उलझन है? हमारा प्लेटफॉर्म प्रत्येक स्ट्रीम के विषय, भविष्य की संभावनाओं और मेल खाने वाले करियर विकल्पों के बारे में विस्तृत जानकारी प्रदान करता है ताकि आप कक्षा 10वीं या 12वीं के बाद सूचित निर्णय ले सकें।</p>
+      <p><b>2. 🧩 करियर असेसमेंट क्विज़</b><br>छात्र हमारे मज़ेदार और जानकारीपूर्ण क्विज़ को लेकर अपनी रुचियों, ताकतों और आदर्श करियर क्षेत्रों को समझ सकते हैं।</p>
+      <p><b>3. 💬 एआई चैटबॉट – Stream2Dream असिस्टेंट</b><br>ऐसे सवाल पूछें जैसे “10वीं के बाद मुझे कौन सी स्ट्रीम चुननी चाहिए?” या “भारत में शीर्ष छात्रवृत्तियाँ कौन सी हैं?” — और तुरंत जवाब प्राप्त करें!</p>
+      <h2>🏫 हमारा आदर्श वाक्य</h2>
+      <blockquote>“अपनी स्ट्रीम खोजें। अपने सपनों का पीछा करें।”</blockquote>
+    `;
+
+    function toggleLanguage() {
+      const contentDiv = document.getElementById("content");
+      const button = document.querySelector("button");
+
+      if (!isHindi) {
+        contentDiv.innerHTML = hindiContent;
+        button.innerHTML = "🌐 Switch to English";
+        isHindi = true;
+      } else {
+        contentDiv.innerHTML = englishContent;
+        button.innerHTML = "🌐 Switch to Hindi";
+        isHindi = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

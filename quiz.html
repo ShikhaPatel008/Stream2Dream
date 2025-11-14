@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Stream Selection Quiz - Bilingual (English + Hindi)</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f9fc;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 90%;
+    max-width: 980px;
+    margin: 36px auto;
+    background: #fff;
+    padding: 26px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  }
+  h1 {
+    text-align: center;
+    color: #2b3d6b;
+    margin-bottom: 6px;
+  }
+  p.lead {
+    text-align: center;
+    color: #444;
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
+  h3 {
+    color: #2b3d6b;
+    margin-top: 22px;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  .question {
+    margin: 14px 0;
+  }
+  .question p {
+    margin: 6px 0 8px;
+    font-weight: 600;
+    color: #222;
+  }
+  .hindi {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  label {
+    display: block;
+    margin: 6px 0;
+    cursor: pointer;
+    color: #333;
+  }
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+  button {
+    display: block;
+    margin: 22px auto 10px;
+    padding: 12px 24px;
+    background: #2b3d6b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  button:hover { background:#3e57a1; }
+  .result {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 8px;
+    background: #ecf5ff;
+    color: #2b3d6b;
+  }
+  @media (max-width:600px){
+    .container{padding:18px;}
+    h1{font-size:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎓 Stream Selection Quiz (After 10th) / धारा चयन क्विज़ (10वीं के बाद)</h1>
+  <p class="lead">Answer honestly to find your ideal stream. / ईमानदारी से उत्तर दें और अपनी उपयुक्त धारा जानें।</p>
+
+  <form id="quizForm">
+
+    <h3>🧠 Section 1: Interests & Aptitude / रुचि और योग्यता</h3>
+
+    <div class="question">
+      <p>1. Which subjects do you enjoy most?</p>
+      <span class="hindi">1. आप किन विषयों को सबसे अधिक पसंद करते हैं?</span>
+      <label><input type="radio" name="q1" value="A"> Math & Science / गणित और विज्ञान</label>
+      <label><input type="radio" name="q1" value="B"> Business & Economics / वाणिज्य और अर्थशास्त्र</label>
+      <label><input type="radio" name="q1" value="C"> History & Literature / इतिहास और साहित्य</label>
+      <label><input type="radio" name="q1" value="D"> Art, Computers, Design / कला, कंप्यूटर, डिज़ाइन</label>
+    </div>
+
+    <div class="question">
+      <p>2. What activities do you enjoy?</p>
+      <span class="hindi">2. आपको कौन-सी गतिविधियाँ पसंद हैं?</span>
+      <label><input type="radio" name="q2" value="A"> Experiments or coding / प्रयोग या कोडिंग</label>
+      <label><input type="radio" name="q2" value="B"> Managing events / आयोजन या प्रबंधन</label>
+      <label><input type="radio" name="q2" value="C"> Writing or debating / लेखन या वाद-विवाद</label>
+      <label><input type="radio" name="q2" value="D"> Crafting or fixing things / निर्माण या मरम्मत</label>
+    </div>
+
+    <div class="question">
+      <p>3. How do you solve problems?</p>
+      <span class="hindi">3. आप समस्याएँ कैसे हल करते हैं?</span>
+      <label><input type="radio" name="q3" value="A"> Logical thinking / तर्क से</label>
+      <label><input type="radio" name="q3" value="B"> Practical/financial approach / व्यावहारिक/आर्थिक दृष्टिकोण</label>
+      <label><input type="radio" name="q3" value="C"> Creative discussion / रचनात्मक चर्चा</label>
+      <label><input type="radio" name="q3" value="D"> Hands-on methods / प्रयोगात्मक तरीके</label>
+    </div>
+
+    <div class="question">
+      <p>4. Which school project would you like?</p>
+      <span class="hindi">4. आपको कौन-सा स्कूल प्रोजेक्ट पसंद आएगा?</span>
+      <label><input type="radio" name="q4" value="A"> Science model / विज्ञान मॉडल</label>
+      <label><input type="radio" name="q4" value="B"> Business plan / व्यापार योजना</label>
+      <label><input type="radio" name="q4" value="C"> Creative essay / रचनात्मक निबंध</label>
+      <label><input type="radio" name="q4" value="D"> Design or craft / डिज़ाइन या क्राफ्ट</label>
+    </div>
+
+    <div class="question">
+      <p>5. You feel excited when...</p>
+      <span class="hindi">5. आप उत्साहित महसूस करते हैं जब...</span>
+      <label><input type="radio" name="q5" value="A"> Solving complex problems / जटिल समस्याएँ हल करना</label>
+      <label><input type="radio" name="q5" value="B"> Negotiating or selling / सौदा करना या बेचना</label>
+      <label><input type="radio" name="q5" value="C"> Sharing ideas / विचार साझा करना</label>
+      <label><input type="radio" name="q5" value="D"> Building or creating / बनाना या रचना</label>
+    </div>
+
+    <h3>⚙ Section 2: Skills & Strengths / कौशल और शक्तियाँ</h3>
+
+    <div class="question">
+      <p>6. How is your math skill?</p>
+      <span class="hindi">6. आपकी गणित क्षमता कैसी है?</span>
+      <label><input type="radio" name="q6" value="A"> Excellent / उत्कृष्ट</label>
+      <label><input type="radio" name="q6" value="B"> Good / अच्छा</label>
+      <label><input type="radio" name="q6" value="C"> Average / औसत</label>
+      <label><input type="radio" name="q6" value="D"> Weak / कमजोर</label>
+    </div>
+
+    <div class="question">
+      <p>7. How do you remember things?</p>
+      <span class="hindi">7. आप चीज़ों को कैसे याद रख पाते हैं?</span>
+      <label><input type="radio" name="q7" value="A"> By logic / तर्क से</label>
+      <label><input type="radio" name="q7" value="B"> By facts / तथ्यों से</label>
+      <label><input type="radio" name="q7" value="C"> By stories / कहानियों से</label>
+      <label><input type="radio" name="q7" value="D"> By practice / अभ्यास से</label>
+    </div>
+
+    <div class="question">
+      <p>8. You communicate best when...</p>
+      <span class="hindi">8. आप सबसे बेहतर कब संवाद करते हैं?</span>
+      <label><input type="radio" name="q8" value="A"> Explaining logic / तर्क समझाते हुए</label>
+      <label><input type="radio" name="q8" value="B"> Convincing others / दूसरों को मनाते हुए</label>
+      <label><input type="radio" name="q8" value="C"> Expressing emotions / भावनाएँ व्यक्त करते हुए</label>
+      <label><input type="radio" name="q8" value="D"> Showing creation / निर्माण दिखाते हुए</label>
+    </div>
+
+    <div class="question">
+      <p>9. How comfortable are you with practical work?</p>
+      <span class="hindi">9. व्यावहारिक कार्य में आप कितने सहज महसूस करते हैं?</span>
+      <label><input type="radio" name="q9" value="A"> If guided / मार्गदर्शन पर</label>
+      <label><input type="radio" name="q9" value="B"> Only if business related / केवल व्यापार संबंधित</label>
+      <label><input type="radio" name="q9" value="C"> Prefer theory / सिद्धांत पसंद</label>
+      <label><input type="radio" name="q9" value="D"> Very comfortable / बहुत सहज</label>
+    </div>
+
+    <div class="question">
+      <p>10. Teachers praise you for...</p>
+      <span class="hindi">10. शिक्षक आपकी किस बात की प्रशंसा करते हैं?</span>
+      <label><input type="radio" name="q10" value="A"> Analytical thinking / विश्लेषणात्मक सोच</label>
+      <label><input type="radio" name="q10" value="B"> Leadership / नेतृत्व</label>
+      <label><input type="radio" name="q10" value="C"> Creativity / रचनात्मकता</label>
+      <label><input type="radio" name="q10" value="D"> Technical skills / तकनीकी कौशल</label>
+    </div>
+
+    <h3>🎯 Section 3: Career Goals / करियर लक्ष्य</h3>
+
+    <div class="question">
+      <p>11. Which career excites you?</p>
+      <span class="hindi">11. कौन-सा करियर आपको आकर्षित करता है?</span>
+      <label><input type="radio" name="q11" value="A"> Doctor/Engineer/Scientist / डॉक्टर/इंजीनियर/वैज्ञानिक</label>
+      <label><input type="radio" name="q11" value="B"> Businessperson/Banker / व्यवसायी/बैंकर</label>
+      <label><input type="radio" name="q11" value="C"> Lawyer/Journalist/Teacher / वकील/पत्रकार/शिक्षक</label>
+      <label><input type="radio" name="q11" value="D"> Designer/Chef/Technician / डिज़ाइनर/शेफ/टेक्नीशियन</label>
+    </div>
+
+    <div class="question">
+      <p>12. Which subject interests you most?</p>
+      <span class="hindi">12. कौन-सा विषय आपको सबसे अधिक रुचिकर लगता है?</span>
+      <label><input type="radio" name="q12" value="A"> Physics or Biology / भौतिकी या जीवविज्ञान</label>
+      <label><input type="radio" name="q12" value="B"> Accountancy / लेखा</label>
+      <label><input type="radio" name="q12" value="C"> Psychology / मनोविज्ञान</label>
+      <label><input type="radio" name="q12" value="D"> IT or Design / आईटी या डिज़ाइन</label>
+    </div>
+
+    <div class="question">
+      <p>13. In future you dream of...</p>
+      <span class="hindi">13. भविष्य में आपका सपना क्या है?</span>
+      <label><input type="radio" name="q13" value="A"> Research / अनुसंधान</label>
+      <label><input type="radio" name="q13" value="B"> Running a company / कंपनी चलाना</label>
+      <label><input type="radio" name="q13" value="C"> Influencing people / लोगों को प्रभावित करना</label>
+      <label><input type="radio" name="q13" value="D"> Creating/designing / निर्माण/डिज़ाइन</label>
+    </div>
+
+    <div class="question">
+      <p>14. Where do you see yourself working?</p>
+      <span class="hindi">14. आप खुद को कहाँ काम करते हुए देखते हैं?</span>
+      <label><input type="radio" name="q14" value="A"> Lab or Hospital / लैब या अस्पताल</label>
+      <label><input type="radio" name="q14" value="B"> Office or Bank / ऑफिस या बैंक</label>
+      <label><input type="radio" name="q14" value="C"> Newsroom or School / समाचार कक्ष या स्कूल</label>
+      <label><input type="radio" name="q14" value="D"> Studio or Workshop / स्टूडियो या कार्यशाला</label>
+    </div>
+
+    <div class="question">
+      <p>15. What would you value most in job?</p>
+      <span class="hindi">15. नौकरी में आप किसे सबसे अधिक महत्व देंगे?</span>
+      <label><input type="radio" name="q15" value="A"> Knowledge / ज्ञान</label>
+      <label><input type="radio" name="q15" value="B"> Financial success / आर्थिक सफलता</label>
+      <label><input type="radio" name="q15" value="C"> Social impact / सामाजिक प्रभाव</label>
+      <label><input type="radio" name="q15" value="D"> Creativity & Freedom / रचनात्मकता और स्वतंत्रता</label>
+    </div>
+
+    <h3>💬 Section 4: Personality & Values / व्यक्तित्व और मूल्य</h3>
+
+    <div class="question">
+      <p>16. Which word describes you best?</p>
+      <span class="hindi">16. आपका वर्णन करने वाला शब्द कौन-सा है?</span>
+      <label><input type="radio" name="q16" value="A"> Logical / तार्किक</label>
+      <label><input type="radio" name="q16" value="B"> Ambitious / महत्वाकांक्षी</label>
+      <label><input type="radio" name="q16" value="C"> Expressive / अभिव्यंजक</label>
+      <label><input type="radio" name="q16" value="D"> Practical / व्यावहारिक</label>
+    </div>
+
+    <div class="question">
+      <p>17. You feel confident when...</p>
+      <span class="hindi">17. आप कब आत्मविश्वास महसूस करते हैं?</span>
+      <label><input type="radio" name="q17" value="A"> Solving challenges / चुनौतियाँ हल करना</label>
+      <label><input type="radio" name="q17" value="B"> Leading others / दूसरों का नेतृत्व करना</label>
+      <label><input type="radio" name="q17" value="C"> Helping people / लोगों की मदद करना</label>
+      <label><input type="radio" name="q17" value="D"> Creating / निर्माण करना</label>
+    </div>
+
+    <div class="question">
+      <p>18. How do you handle difficulties?</p>
+      <span class="hindi">18. आप कठिनाइयों को कैसे संभालते हैं?</span>
+      <label><input type="radio" name="q18" value="A"> Logically / तर्कसंगत रूप से</label>
+      <label><input type="radio" name="q18" value="B"> Strategically / रणनीतिक रूप से</label>
+      <label><input type="radio" name="q18" value="C"> By talking / बातचीत से</label>
+      <label><input type="radio" name="q18" value="D"> By doing / करके</label>
+    </div>
+
+    <div class="question">
+      <p>19. What type of success matters most?</p>
+      <span class="hindi">19. किस प्रकार की सफलता आपके लिए महत्वपूर्ण है?</span>
+      <label><input type="radio" name="q19" value="A"> Academic / शैक्षणिक</label>
+      <label><input type="radio" name="q19" value="B"> Financial / आर्थिक</label>
+      <label><input type="radio" name="q19" value="C"> Recognition / पहचान</label>
+      <label><input type="radio" name="q19" value="D"> Creative / रचनात्मक</label>
+    </div>
+
+    <div class="question">
+      <p>20. Which learning style suits you?</p>
+      <span class="hindi">20. किस प्रकार का सीखने का तरीका आपके लिए उपयुक्त है?</span>
+      <label><input type="radio" name="q20" value="A"> Analytical / विश्लेषणात्मक</label>
+      <label><input type="radio" name="q20" value="B"> Practical & Business / व्यावहारिक और व्यावसायिक</label>
+      <label><input type="radio" name="q20" value="C"> Expressive / अभिव्यक्तिपूर्ण</label>
+      <label><input type="radio" name="q20" value="D"> Visual / दृश्यात्मक</label>
+    </div>
+
+    <button type="button" onclick="calculateResult()">Submit Quiz / क्विज़ सबमिट करें</button>
+  </form>
+
+  <div id="result" class="result" aria-live="polite"></div>
+</div>
+
+<script>
+function calculateResult() {
+  const counts = {A:0, B:0, C:0, D:0};
+  let allAnswered = true;
+  for (let i=1;i<=20;i++){
+    const sel = document.querySelector('input[name="q'+i+'"]:checked');
+    if (!sel){
+        allAnswered = false;
+        break;
+    } else{
+      counts[sel.value]++;
+   }
+}
+if (!allAnswered) {
+    ("⚠ Please answer all questions before submitting!\nकृपया सभी प्रश्नों का उत्तर दें!");
+    return;
+  }
+
+
+  // Decide highest — if tie, choose priority A > B > C > D
+  const order = ['A','B','C','D'];
+  let best = order[0];
+  for (const k of order) {
+    if (counts[k] > counts[best]) best = k;
+  }
+
+  let streamEn = "", streamHi = "";
+  if (best === 'A') { streamEn = "Science Stream (Analytical, Logical, Curious)"; streamHi = "विज्ञान धारा (तार्किक, विश्लेषणात्मक, जिज्ञासु)"; }
+  else if (best === 'B') { streamEn = "Commerce Stream (Strategic, Business-minded)"; streamHi = "वाणिज्य धारा (रणनीतिक, व्यापारी सोच)"; }
+  else if (best === 'C') { streamEn = "Arts / Humanities (Creative, Expressive, Social)"; streamHi = "कला / मानविकी (रचनात्मक, अभिव्यंजक, सामाजिक)"; }
+  else { streamEn = "Vocational / Skill-Based (Practical, Hands-on)"; streamHi = "व्यावसायिक / कौशल आधारित (व्यावहारिक, हाथों से काम)"; }
+
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = `
+    <strong>Your Recommended Stream:</strong><br>
+    ${streamEn}<br><br>
+    <strong>आपकी अनुशंसित धारा:</strong><br>
+    ${streamHi}<br><br>
+    <em>Tip:</em> Discuss your result with a teacher or counselor before making the final choice.<br>
+    <em>सलाह:</em> अंतिम निर्णय लेने से पहले अपने शिक्षक या काउंसलर से चर्चा करें।
+  `;
+}
+</script>
+
+</body>
+</html>

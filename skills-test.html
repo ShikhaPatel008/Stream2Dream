@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Career Selection Quiz — After Class 12</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --primary:#0b65d1;
+      --muted:#6b7280;
+      --accent:#0b5bd1;
+      --success:#0f9d58;
+      --danger:#e44;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:28px}
+    .container{max-width:920px;width:100%}
+    .card{background:var(--card);border-radius:12px;box-shadow:0 6px 30px rgba(12,23,45,0.08);padding:22px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+    header h1{font-size:20px;margin:0}
+    header p{margin:0;color:var(--muted);font-size:13px}
+    .lang-toggle{display:flex;gap:8px;align-items:center}
+    .btn{background:var(--primary);color:white;padding:8px 12px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;color:var(--primary);border:1px solid rgba(11,101,209,0.12)}
+    .progress{height:10px;background:#e6eefc;border-radius:999px;overflow:hidden;margin:14px 0}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),#4a90e2);width:0}
+    .question{margin-top:12px}
+    .q-title{font-weight:700;margin:0 0 8px 0}
+    .options{display:grid;gap:8px}
+    .option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;border:1px solid #eef3fb;cursor:pointer}
+    .option input{accent-color:var(--primary)}
+    footer{display:flex;justify-content:space-between;gap:8px;margin-top:18px}
+    .result{padding:18px;border-radius:10px;border:1px dashed #dbeafe;margin-top:16px;background:#fbfdff}
+    .suggestions{margin-top:8px}
+    .small{font-size:13px;color:var(--muted)}
+    .center{display:flex;justify-content:center;align-items:center}
+    @media (max-width:640px){ header{flex-direction:column;align-items:flex-start;gap:10px} .btn{padding:8px 10px} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" role="application" aria-labelledby="title">
+      <header>
+        <div>
+          <h1 id="title">Career Selection Quiz — After Class 12</h1>
+          <p id="tagline">Answer honestly. Get suggested career areas at the end.</p>
+        </div>
+        <div class="lang-toggle" aria-hidden="false">
+          <label class="small" id="langLabel">Language</label>
+          <select id="lang" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
+      </header>
+
+      <div class="progress" aria-hidden="true">
+        <i id="progressBar" style="width:0%"></i>
+      </div>
+
+      <main id="quizArea">
+        <!-- Questions will be injected here -->
+      </main>
+
+      <footer>
+        <div>
+          <button id="prevBtn" class="btn ghost" disabled>Previous</button>
+          <button id="nextBtn" class="btn">Next</button>
+        </div>
+        <div class="center small" id="qCounter">Question 1 / 14</div>
+      </footer>
+
+      <section id="resultArea" style="display:none" aria-live="polite">
+        <div class="result" id="resultCard">
+          <!-- Result content appears here -->
+        </div>
+      </section>
+    </div>
+
+    
+  </div>
+
+<script>
+/* ========= Data: questions + translations ========= */
+const data = {
+  en: {
+    title: "Career Selection Quiz — After Class 12",
+    tagline: "Answer honestly. Get suggested career areas at the end.",
+    prev: "Previous",
+    next: "Next",
+    submit: "Submit & See Result",
+    restart: "Retake Quiz",
+    questions: [
+      { q: "Which school subjects do you enjoy the most?", opts:["Physics / Math","Biology / Chemistry","Literature / Languages","Business / Economics","Computers / Technology","Art / Music / Design"] },
+      { q: "What kind of activities do you enjoy in your free time?", opts:["Solving puzzles or coding","Reading about human behaviour or health","Designing or drawing","Planning events or leading teams","Writing, speaking, or creating videos","Helping others / volunteering"] },
+      { q: "What excites you more?", opts:["Discovering how machines work","Helping people solve personal or social issues","Managing money or running a business","Creating something new or artistic","Doing experiments or researching new ideas","Leading teams and projects"] },
+      { q: "Which of the following best describes your strength?", opts:["Logical and analytical thinking","Creativity and imagination","Communication and persuasion","Leadership and management","Observation and problem-solving","Empathy and counselling"] },
+      { q: "When given a project, what do you do first?", opts:["Make a detailed plan and set goals","Discuss ideas with others","Start experimenting or trying out designs","Research existing data thoroughly","Focus on completing tasks efficiently","Understand people's needs first"] },
+      { q: "How do you prefer to solve problems?", opts:["By applying logic and formulas","By understanding emotions and teamwork","By finding creative solutions","By taking practical, real-world actions","By research and careful testing","By negotiation and dialogue"] },
+      { q: "What type of environment do you prefer to work in?", opts:["Structured and rule-based (labs/offices)","Flexible and open (studios/startups)","Interactive and people-oriented","Fast-paced and challenging","Quiet research-focused","Fieldwork / community settings"] },
+      { q: "How do you feel about taking risks?", opts:["I prefer stability and certainty","I enjoy calculated risks","I love experimenting and taking chances","I take risks to lead and win","I take small measured risks","I avoid big risks, prefer safe choices"] },
+      { q: "How do you usually make decisions?", opts:["Based on facts and data","Based on feelings and intuition","After consulting others","After analyzing all possible options","Quickly and practically","By consensus and discussion"] },
+      { q: "What motivates you the most in a career?", opts:["Earning high income","Helping others or contributing to society","Gaining knowledge and learning continuously","Freedom and creativity","Power and leadership","Stability and respect"] },
+      { q: "Which statement best describes your long-term goal?", opts:["I want to build innovative technologies","I want to heal and help people","I want to run my own business","I want to create art, design, or media content","I want to work in research or academia","I want to serve in public service / administration"] },
+      { q: "Which career area sounds most appealing?", opts:["Engineering / Technology","Medicine / Healthcare","Commerce / Business","Arts / Media / Design","Research / Academia","Law / Public Service / Humanities"] },
+      { q: "How do you handle academic pressure?", opts:["By organizing my work logically","By talking to friends or mentors","By taking creative breaks","By staying focused on my goals","By studying deeper and researching","By asking for guidance and support"] },
+      { q: "What type of work do you find boring?", opts:["Repetitive tasks","Working alone","Following strict rules","Physical or outdoor work","Lack of intellectual challenge","Too much paperwork / bureaucracy"] }
+    ],
+    mappingNote: "Result mapping (most-chosen category):",
+    careers: {
+      A: { label:"Engineering / Technology", desc:"Fields like Engineering, Computer Science, Data Science, Architecture." },
+      B: { label:"Medicine / Healthcare", desc:"Medicine, Nursing, Allied Health, Psychology, Public Health." },
+      C: { label:"Commerce / Business", desc:"Business Management, Finance, Economics, Marketing, Entrepreneurship." },
+      D: { label:"Arts / Media / Design", desc:"Design, Fine Arts, Media, Performing Arts, Fashion, Creative fields." },
+      E: { label:"Research / Academia", desc:"Research, MSc/PhD, Labs, Think-tanks, Academia." },
+      F: { label:"Law / Public Service / Humanities", desc:"Law, Civil Services, Humanities, Social Sciences, Public Policy." }
+    },
+    share: "Print / Save",
+    topTip: "Top Tip"
+  },
+  hi: {
+    title: "कैरियर चयन प्रश्नोत्तरी — कक्षा 12 के बाद",
+    tagline: "ईमानदारी से उत्तर दें। अंत में सुझाए गए करियर क्षेत्र देखें।",
+    prev: "पिछला",
+    next: "अगला",
+    submit: "सबमिट करें और परिणाम देखें",
+    restart: "फिर से लें",
+    questions: [
+      { q: "किस स्कूल विषय का आप सबसे ज़्यादा आनंद लेते हैं?", opts:["भौतिकी / गणित","जीवविज्ञान / रसायन","साहित्य / भाषाएँ","व्यवसाय / अर्थशास्त्र","कम्प्यूटर / तकनीक","कला / संगीत / डिज़ाइन"] },
+      { q: "खाली समय में आप किस तरह की गतिविधियाँ पसंद करते हैं?", opts:["पहेलियाँ सुलझाना या कोडिंग","मानव व्यवहार या स्वास्थ्य पढ़ना","डिज़ाइन करना या ड्रॉ करना","इवेंट की योजना बनाना या टीम नेतृत्व","लेखन, बोलना या वीडियो बनाना","दूसरों की मदद / स्वयंसेवा"] },
+      { q: "आपको क्या अधिक उत्साहित करता है?", opts:["मशीनें कैसे काम करती हैं खोजना","लोगों की व्यक्तिगत या सामाजिक समस्याओं में मदद करना","पैसे का प्रबंधन या व्यापार चलाना","कुछ नया या कलात्मक बनाना","प्रयोग करना या शोध करना","टीम और परियोजनाओं का नेतृत्व करना"] },
+      { q: "निम्न में से कौन आपकी ताकत को सबसे अच्छा वर्णित करता है?", opts:["तर्कशील और विश्लेषणात्मक सोच","रचनात्मकता और कल्पना","संचार और मनाने की कला","नेतृत्व और प्रबंधन","प्रेक्षण और समस्या-समाधान","सहानुभूति और परामर्श"] },
+      { q: "जब आपको एक प्रोजेक्ट दिया जाता है, तो आप पहले क्या करते हैं?", opts:["एक विस्तृत योजना बनाते हैं और लक्ष्य तय करते हैं","दूसरों के साथ विचार चर्चा करते हैं","प्रयोग करना या डिज़ाइन आज़माना शुरू करते हैं","मौजूदा डेटा का गहन अनुसंधान करते हैं","काज पूरा करने पर ध्यान देते हैं","लोगों की ज़रूरत समझते हैं"] },
+      { q: "आप समस्याओं को कैसे हल करना पसंद करते हैं?", opts:["तर्क और सूत्र लगाकर","भावनाओं और टीमवर्क को समझकर","रचनात्मक समाधान खोजकर","व्यावहारिक, वास्तविक दुनिया के कार्य करके","शोध और सावधानीपूर्वक परीक्षण करके","वार्ता और संवाद द्वारा"] },
+      { q: "आप किस प्रकार के वातावरण में काम पसंद करेंगे?", opts:["स्ट्रक्चर्ड और नियम-आधारित (लैब/ऑफिस)","लचीला और खुला (स्टूडियो/स्टार्टअप)","इंटरएक्टिव और लोगों-केंद्रित","तेज़ गति और चुनौतीपूर्ण","शांत शोध-केन्द्रित","मैदानी / समुदाय कार्य"] },
+      { q: "जोखिम लेने के बारे में आपका क्या मानना है?", opts:["मुझे स्थिरता और निश्चितता पसंद है","मैं गणना किए गए जोखिम लेना पसंद करता/करती हूँ","मुझे प्रयोग करना और मौके लेना पसंद है","मैं नेतृत्व और जीत के लिए जोखिम लेता/लेती हूँ","मैं छोटे, मापित जोखिम लेता/लेती हूँ","मैं बड़े जोखिम से बचता/बचती हूँ"] },
+      { q: "आप आमतौर पर निर्णय कैसे लेते हैं?", opts:["तथ्यों और डेटा के आधार पर","भावनाओं और अंतर्ज्ञान पर","दूसरों से सलाह लेकर","सभी विकल्पों का विश्लेषण करके","त्वरित और व्यावहारिक तरीके से","सहमति और चर्चा से"] },
+      { q: "कैरियर में आपको सबसे ज़्यादा क्या प्रेरित करता है?", opts:["ऊँची आय कमाना","दूसरों की मदद करना / समाज में योगदान","निरंतर ज्ञान और सीखना","स्वतंत्रता और रचनात्मकता","शक्ति और नेतृत्व","स्थिरता और सम्मान"] },
+      { q: "आपका दीर्घकालिक लक्ष्य किस वाक्य से अधिक मिलता है?", opts:["मैं अभिनव तकनीक बनाना चाहता/चाहती हूँ","मैं लोगों को इलाज और मदद करना चाहता/चाहती हूँ","मैं अपना व्यवसाय चलाना चाहता/चाहती हूँ","मैं कला, डिज़ाइन या मीडिया बनाना चाहता/चाहती हूँ","मैं शोध या शिक्षा में काम करना चाहता/चाहती हूँ","मैं लोक-सेवा / प्रशासन में काम करना चाहता/चाहती हूँ"] },
+      { q: "कौन सा करियर क्षेत्र सबसे आकर्षक लगता है?", opts:["इंजीनियरिंग / तकनीक","चिकित्सा / स्वास्थ्य","व्यापार / कॉमर्स","कला / मीडिया / डिज़ाइन","शोध / अकादमिक","कानून / लोक-सेवा / मानविकी"] },
+      { q: "आप शैक्षिक दबाव को कैसे संभालते हैं?", opts:["अपने काम को तार्किक रूप से व्यवस्थित करके","मित्रों या मार्गदर्शकों से बात करके","रचनात्मक ब्रेक लेकर","अपने लक्ष्यों पर ध्यान केंद्रित करके","गहराई से अध्ययन करके","मार्गदर्शन और सहायता मांगकर"] },
+      { q: "आप किस प्रकार का काम उबाऊ पाते हैं?", opts:["दोहराया हुआ कार्य","अकेले काम करना","कठोर नियमों का पालन करना","शारीरिक या बाहरी काम","बौद्धिक चुनौती का अभाव","बहुत अधिक कागजी कार्य / नौकरशाही"] }
+    ],
+    mappingNote: "परिणाम मानचित्रण (सबसे अधिक चुना गया श्रेणी):",
+    careers: {
+      A: { label:"इंजीनियरिंग / तकनीक", desc:"इंजीनियरिंग, कंप्यूटर साइंस, डेटा साइंस, वास्तुकला जैसे क्षेत्र।" },
+      B: { label:"चिकित्सा / स्वास्थ्य", desc:"चिकित्सा, नर्सिंग, सहायक स्वास्थ्य, मनोविज्ञान, सार्वजनिक स्वास्थ्य।" },
+      C: { label:"व्यापार / कॉमर्स", desc:"बिज़नेस मैनेजमेंट, फाइनेंस, मार्केटिंग, उद्यमिता।" },
+      D: { label:"कला / मीडिया / डिज़ाइन", desc:"डिज़ाइन, फाइन आर्ट्स, मीडिया, परफ़ॉर्मिंग आर्ट्स, फैशन।" },
+      E: { label:"शोध / अकादमिक", desc:"शोध, MSc/PhD, लैब, थिंक-टैंक्स, अकादमिक।" },
+      F: { label:"कानून / लोक-सेवा / मानविकी", desc:"कानून, सिविल सेवाएँ, मानविकी, सार्वजनिक नीति।" }
+    },
+    share: "प्रिंट / सेव करें",
+    topTip: "टॉप टिप"
+  }
+};
+
+/* ====== Category mapping for each option index ====== 
+   We'll map each option (0..5) to a category letter A..F depending on the question.
+   For simplicity: every option index maps same letter across questions:
+     0 -> A (Engineering/Tech)
+     1 -> B (Medicine/Healthcare)
+     2 -> D (Arts/Design) or C? (we'll map thoughtfully)
+     3 -> C (Commerce/Business)
+     4 -> E (Research/Academia)
+     5 -> F (Law/PublicService/Humanities)
+   This mapping fits the question construction above.
+*/
+const idxToCategory = ['A','B','D','C','E','F'];
+
+/* ========= App State ========= */
+let state = {
+  lang: localStorage.getItem('quiz_lang') || 'en',
+  current: 0,
+  answers: Array(14).fill(null)
+};
+
+/* ========= DOM ========= */
+const langSelect = document.getElementById('lang');
+const quizArea = document.getElementById('quizArea');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const qCounter = document.getElementById('qCounter');
+const progressBar = document.getElementById('progressBar');
+const resultArea = document.getElementById('resultArea');
+const resultCard = document.getElementById('resultCard');
+const titleEl = document.getElementById('title');
+const taglineEl = document.getElementById('tagline');
+
+/* Initialize language select */
+langSelect.value = state.lang;
+
+/* ========= Functions ========= */
+
+function t(key){
+  return data[state.lang][key];
+}
+
+function renderHeaderTexts(){
+  titleEl.textContent = data[state.lang].title;
+  taglineEl.textContent = data[state.lang].tagline;
+  prevBtn.textContent = data[state.lang].prev;
+  nextBtn.textContent = data[state.lang].next;
+}
+
+function renderQuestion(index){
+  const qObj = data[state.lang].questions[index];
+  const total = data[state.lang].questions.length;
+  quizArea.innerHTML = '';
+
+  const qwrap = document.createElement('div');
+  qwrap.className = 'question';
+  const h = document.createElement('h3');
+  h.className = 'q-title';
+  h.textContent = (index+1) + '. ' + qObj.q;
+  qwrap.appendChild(h);
+
+  const opts = document.createElement('div');
+  opts.className = 'options';
+  qObj.opts.forEach((opt, i) => {
+    const id = `q${index}_opt${i}`;
+    const label = document.createElement('label');
+    label.className = 'option';
+    label.setAttribute('for', id);
+    label.tabIndex = 0;
+
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'q' + index;
+    radio.id = id;
+    radio.value = i;
+    radio.checked = (state.answers[index] === i);
+    radio.addEventListener('change', () => {
+      state.answers[index] = i;
+      saveState();
+      updateProgress();
+    });
+
+    const span = document.createElement('div');
+    span.textContent = opt;
+
+    label.appendChild(radio);
+    label.appendChild(span);
+    opts.appendChild(label);
+  });
+
+  qwrap.appendChild(opts);
+  quizArea.appendChild(qwrap);
+
+  // Update buttons and counters
+  prevBtn.disabled = (index === 0);
+  const isLast = (index === total - 1);
+  nextBtn.textContent = isLast ? data[state.lang].submit : data[state.lang].next;
+  qCounter.textContent = `Question ${index+1} / ${total}`;
+  updateProgress();
+}
+
+function updateProgress(){
+  const total = data[state.lang].questions.length;
+  const answered = state.answers.filter(a => a !== null).length;
+  const percent = Math.round(((state.current) / (total - 1)) * 100);
+  progressBar.style.width = percent + '%';
+}
+
+function next(){
+  const total = data[state.lang].questions.length;
+  if(state.current < total - 1){
+    state.current++;
+    renderQuestion(state.current);
+  } else {
+    // Submit
+    if(state.answers.some(a => a === null)){
+      // show results anyway but warn
+      if(!confirm(getWarningText())){
+        return;
+      }
+    }
+    showResult();
+  }
+  saveState();
+}
+
+function prev(){
+  if(state.current > 0){
+    state.current--;
+    renderQuestion(state.current);
+    saveState();
+  }
+}
+
+function getWarningText(){
+  return state.lang === 'hi'
+    ? "कुछ प्रश्न उत्तरित नहीं हैं। क्या आप बिना सभी उत्तर दिए परिणाम देखना चाहते हैं?"
+    : "Some questions are unanswered. Do you want to see the result without answering all questions?";
+}
+
+function showResult(){
+  // Compute category counts
+  const counts = {A:0,B:0,C:0,D:0,E:0,F:0};
+  state.answers.forEach(ans => {
+    if(ans !== null){
+      const cat = idxToCategory[ans] || 'A';
+      counts[cat] = (counts[cat] || 0) + 1;
+    }
+  });
+
+  // Determine top category (tie-breaker: highest count, then prefer A..F order)
+  let topCat = 'A';
+  let topCount = -1;
+  ['A','B','C','D','E','F'].forEach(cat => {
+    if(counts[cat] > topCount){
+      topCount = counts[cat];
+      topCat = cat;
+    }
+  });
+
+  // Build result HTML
+  resultArea.style.display = 'block';
+  quizArea.style.display = 'none';
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+  qCounter.style.display = 'none';
+  progressBar.style.width = '100%';
+
+  const careers = data[state.lang].careers;
+  const heading = `<h2>${careers[topCat].label}</h2>`;
+  const desc = `<p class="small">${careers[topCat].desc}</p>`;
+
+  // breakdown
+  const breakdown = document.createElement('div');
+  breakdown.innerHTML = '<strong>' + (state.lang === 'hi' ? 'आपके उत्तरों का सारांश:' : 'Summary of your answers:') + '</strong>';
+  const list = document.createElement('ul');
+  for(const cat of ['A','B','C','D','E','F']){
+    const li = document.createElement('li');
+    li.textContent = `${careers[cat].label} — ${counts[cat]} ${state.lang === 'hi' ? 'उत्तर' : 'answers'}`;
+    list.appendChild(li);
+  }
+  breakdown.appendChild(list);
+
+  // Tips
+  const tip = `<p class="small"><strong>${data[state.lang].topTip}:</strong> ${state.lang === 'hi' ? 'यह केवल एक प्रारंभिक संकेत है। विस्तृत सलाह के लिए करियर काउंसलर से मिलें।' : 'This is an initial suggestion. For detailed guidance consult a career counselor.'}</p>`;
+
+  // Action buttons (print, retake)
+  resultCard.innerHTML = `
+    ${heading}
+    ${desc}
+    ${breakdown.innerHTML}
+    ${tip}
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button id="retake" class="btn ghost">${data[state.lang].restart}</button>
+      <button id="print" class="btn">${data[state.lang].share}</button>
+    </div>
+  `;
+
+  document.getElementById('retake').addEventListener('click', () => {
+    state.answers = Array(data[state.lang].questions.length).fill(null);
+    state.current = 0;
+    resultArea.style.display = 'none';
+    quizArea.style.display = 'block';
+    prevBtn.style.display = '';
+    nextBtn.style.display = '';
+    qCounter.style.display = '';
+    renderQuestion(0);
+    saveState();
+  });
+
+  document.getElementById('print').addEventListener('click', () => {
+    window.print();
+  });
+
+  // Also show a short recommended action list below result
+  const suggestions = document.createElement('div');
+  suggestions.className = 'suggestions small';
+  suggestions.innerHTML = state.lang === 'hi'
+    ? `<p><strong>अगला कदम:</strong> 1) संबंधित विषयों का परिचयात्मक कोर्स लें. 2) शॉर्ट-टर्म इंटर्नशिप/वर्कशॉप देखें. 3) करियर काउंसलर से मिलें.</p>`
+    : `<p><strong>Next steps:</strong> 1) Try introductory courses in the suggested area. 2) Look for short internships/workshops. 3) Talk to a career counselor for personalised planning.</p>`;
+  resultCard.appendChild(suggestions);
+}
+
+function saveState(){
+  localStorage.setItem('quiz_state', JSON.stringify(state));
+  localStorage.setItem('quiz_lang', state.lang);
+}
+
+function loadState(){
+  const raw = localStorage.getItem('quiz_state');
+  if(raw){
+    try{
+      const obj = JSON.parse(raw);
+      // validate length
+      if(obj && Array.isArray(obj.answers) && obj.answers.length === data[state.lang].questions.length){
+        state = {...state, ...obj};
+      } else {
+        // reset if mismatch in question count (e.g., language change)
+        state.answers = Array(data[state.lang].questions.length).fill(null);
+        state.current = 0;
+      }
+    }catch(e){}
+  } else {
+    // initialize answers length
+    state.answers = Array(data[state.lang].questions.length).fill(null);
+  }
+}
+
+/* ======= Event wiring ======= */
+
+langSelect.addEventListener('change', (e) => {
+  state.lang = e.target.value;
+  // Re-init answers array length for new language if needed
+  state.answers = Array(data[state.lang].questions.length).fill(null);
+  state.current = 0;
+  localStorage.setItem('quiz_lang', state.lang);
+  renderHeaderTexts();
+  renderQuestion(state.current);
+  saveState();
+});
+
+prevBtn.addEventListener('click', prev);
+nextBtn.addEventListener('click', next);
+
+/* On load */
+(function init(){
+  // If user had saved language preference use it
+  langSelect.value = state.lang;
+  renderHeaderTexts();
+  loadState();
+  // Ensure answers length matches current language questions
+  if(!Array.isArray(state.answers) || state.answers.length !== data[state.lang].questions.length){
+    state.answers = Array(data[state.lang].questions.length).fill(null);
+    state.current = 0;
+  }
+  renderQuestion(state.current);
+  updateProgress();
+})();
+
+/* Accessibility: keyboard support for option labels */
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'ArrowRight'){ next(); }
+  if(e.key === 'ArrowLeft'){ prev(); }
+});
+
+</script>
+</body>
+</html>

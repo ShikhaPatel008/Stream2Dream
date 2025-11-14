@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Building and Enhancing Tips</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f0f7ff;
+      color: #033e8c;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0e6bae;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    #langToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #langToggle:hover {
+      background: #ffd700;
+      color: #0e6bae;
+    }
+
+    section {
+      background: white;
+      margin: 20px auto;
+      max-width: 1000px;
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 4px 10px rgba(0, 119, 204, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 119, 204, 0.2);
+    }
+
+    h2 {
+      color: #005fa3;
+      margin-bottom: 15px;
+      border-left: 5px solid #0d5385;
+      padding-left: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      list-style-type: square;
+    }
+
+    ol {
+      margin-left: 20px;
+    }
+
+    /* Smooth scroll animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="headerText">
+    💼 Resume Building and Enhancing Tips
+    <button id="langToggle">हिंदी</button>
+  </header>
+
+  <section class="fade-in" id="sec1"></section>
+  <section class="fade-in" id="sec2"></section>
+  <section class="fade-in" id="sec3"></section>
+  <section class="fade-in" id="sec4"></section>
+  <section class="fade-in" id="sec5"></section>
+
+  <script>
+    const langData = {
+      en: {
+        header: "💼 Resume Building and Enhancing Tips",
+        sec1: `
+          <h2>What Is a Resume?</h2>
+          <p>A <strong>resume</strong> is a concise document highlighting your <strong>education, skills, experience, and achievements</strong>. 
+          It is the first impression a recruiter gets, so it should be <strong>clear, professional, and well-structured</strong>.</p>
+        `,
+        sec2: `
+          <h2>Resume Structure</h2>
+          <ol>
+            <li><strong>Header / Contact Information:</strong> Name, Phone Number, Email, LinkedIn or Portfolio</li>
+            <li><strong>Career Objective / Summary:</strong> 1–3 lines summarizing goals, skills, and value</li>
+            <li><strong>Education:</strong> Reverse chronological order, include percentage/CGPA</li>
+            <li><strong>Skills:</strong> Technical and soft skills in bullet points</li>
+            <li><strong>Experience / Internships:</strong> Roles, responsibilities, achievements, quantified where possible</li>
+            <li><strong>Achievements / Awards / Certifications:</strong> Competitions, scholarships, leadership roles</li>
+            <li><strong>Projects:</strong> Academic or personal projects highlighting results and tools used</li>
+            <li><strong>Extra-curricular Activities:</strong> Sports, clubs, volunteering, community service</li>
+          </ol>
+        `,
+        sec3: `
+          <h2>Resume Enhancing Tips</h2>
+          <ul>
+            <li><strong>Keep It Concise:</strong> 1 page for freshers; 2 pages max for experienced professionals</li>
+            <li><strong>Tailor for Each Job:</strong> Highlight relevant skills and experience</li>
+            <li><strong>Use Action Words:</strong> Managed, Led, Developed, Created, Implemented</li>
+            <li><strong>Highlight Achievements, Not Just Duties:</strong> Quantify accomplishments</li>
+            <li><strong>Professional Formatting:</strong> Clean layout, consistent fonts, proper spacing</li>
+            <li><strong>Include Keywords:</strong> For Applicant Tracking Systems (ATS)</li>
+            <li><strong>Proofread Thoroughly:</strong> Avoid typos and grammar errors</li>
+            <li><strong>Professional Email and Contact:</strong> Use firstname.lastname@example.com</li>
+            <li><strong>Portfolio or Work Samples:</strong> Include links to writing, design, or coding projects</li>
+            <li><strong>Continuous Update:</strong> Add new skills, experiences, and certifications regularly</li>
+          </ul>
+        `,
+        sec4: `
+          <h2>Common Mistakes to Avoid</h2>
+          <ul>
+            <li>Too long or cluttered resume</li>
+            <li>Generic objective or summary</li>
+            <li>Typos and grammatical errors</li>
+            <li>Including irrelevant personal details</li>
+            <li>Overloading with technical jargon without explanation</li>
+          </ul>
+        `,
+        sec5: `
+          <h2>Bonus Tips</h2>
+          <ul>
+            <li>Use bullet points for clarity</li>
+            <li>Maintain uniform font size and style</li>
+            <li>Use action metrics wherever possible</li>
+            <li>Save and send resume as PDF to preserve formatting</li>
+          </ul>
+        `
+      },
+      hi: {
+        header: "💼 रिज्यूमे बनाने और सुधारने के टिप्स",
+        sec1: `
+          <h2>रिज्यूमे क्या है?</h2>
+          <p><strong>रिज्यूमे</strong> एक संक्षिप्त दस्तावेज़ है जिसमें आपकी <strong>शिक्षा, कौशल, अनुभव और उपलब्धियाँ</strong> शामिल होती हैं।
+          यह नियोक्ता पर आपका <strong>पहला प्रभाव</strong> डालता है, इसलिए इसे <strong>स्पष्ट, पेशेवर और सुव्यवस्थित</strong> होना चाहिए।</p>
+        `,
+        sec2: `
+          <h2>रिज्यूमे की संरचना</h2>
+          <ol>
+            <li><strong>हेडर / संपर्क जानकारी:</strong> नाम, फोन नंबर, ईमेल, लिंक्डइन या पोर्टफोलियो</li>
+            <li><strong>करियर उद्देश्य / सारांश:</strong> 1–3 पंक्तियों में लक्ष्य, कौशल और मूल्य का विवरण</li>
+            <li><strong>शिक्षा:</strong> नवीनतम से पुराना क्रम, प्रतिशत/CGPA शामिल करें</li>
+            <li><strong>कौशल:</strong> तकनीकी और सॉफ्ट स्किल्स बुलेट पॉइंट्स में</li>
+            <li><strong>अनुभव / इंटर्नशिप:</strong> भूमिकाएँ, ज़िम्मेदारियाँ और उपलब्धियाँ (जहाँ संभव हो संख्या में बताएं)</li>
+            <li><strong>उपलब्धियाँ / पुरस्कार / प्रमाणपत्र:</strong> प्रतियोगिताएँ, छात्रवृत्ति, नेतृत्व भूमिकाएँ</li>
+            <li><strong>प्रोजेक्ट्स:</strong> अकादमिक या व्यक्तिगत प्रोजेक्ट्स जिनमें परिणाम और उपयोग किए गए उपकरणों का उल्लेख हो</li>
+            <li><strong>अतिरिक्त गतिविधियाँ:</strong> खेल, क्लब, स्वयंसेवा, सामुदायिक सेवा</li>
+          </ol>
+        `,
+        sec3: `
+          <h2>रिज्यूमे सुधारने के टिप्स</h2>
+          <ul>
+            <li><strong>संक्षिप्त रखें:</strong> फ्रेशर के लिए 1 पेज, अनुभवी के लिए अधिकतम 2 पेज</li>
+            <li><strong>हर नौकरी के अनुसार बनाएँ:</strong> प्रासंगिक कौशल और अनुभव को उजागर करें</li>
+            <li><strong>एक्शन शब्दों का उपयोग करें:</strong> Managed, Led, Developed, Created, Implemented</li>
+            <li><strong>सिर्फ जिम्मेदारियाँ नहीं, उपलब्धियाँ बताएं:</strong> उन्हें संख्यात्मक रूप में दिखाएँ</li>
+            <li><strong>पेशेवर प्रारूप:</strong> साफ-सुथरा लेआउट, समान फॉन्ट, उचित स्पेसिंग</li>
+            <li><strong>कीवर्ड शामिल करें:</strong> ATS सिस्टम के लिए आवश्यक</li>
+            <li><strong>सावधानीपूर्वक प्रूफरीड करें:</strong> टाइपो और व्याकरणिक त्रुटियों से बचें</li>
+            <li><strong>पेशेवर ईमेल और संपर्क:</strong> firstname.lastname@example.com का उपयोग करें</li>
+            <li><strong>पोर्टफोलियो या वर्क सैंपल्स:</strong> अपने काम के लिंक शामिल करें</li>
+            <li><strong>नियमित अपडेट करें:</strong> नए कौशल और अनुभव जोड़ते रहें</li>
+          </ul>
+        `,
+        sec4: `
+          <h2>सामान्य गलतियाँ जिनसे बचें</h2>
+          <ul>
+            <li>बहुत लंबा या भरा हुआ रिज्यूमे</li>
+            <li>सामान्य उद्देश्य या सारांश</li>
+            <li>टाइपो और व्याकरणिक गलतियाँ</li>
+            <li>अप्रासंगिक व्यक्तिगत जानकारी</li>
+            <li>अत्यधिक तकनीकी शब्दों का प्रयोग बिना स्पष्टीकरण के</li>
+          </ul>
+        `,
+        sec5: `
+          <h2>अतिरिक्त टिप्स</h2>
+          <ul>
+            <li>स्पष्टता के लिए बुलेट पॉइंट्स का प्रयोग करें</li>
+            <li>फॉन्ट साइज और स्टाइल समान रखें</li>
+            <li>जहाँ संभव हो आंकड़े प्रयोग करें</li>
+            <li>PDF फॉर्मेट में सेव करें ताकि फॉर्मेटिंग बनी रहे</li>
+          </ul>
+        `
+      }
+    };
+
+    let currentLang = "en";
+
+    function applyLang(lang) {
+      document.getElementById("headerText").childNodes[0].textContent = langData[lang].header + " ";
+      for (let i = 1; i <= 5; i++) {
+        document.getElementById("sec" + i).innerHTML = langData[lang]["sec" + i];
+      }
+      document.getElementById("langToggle").textContent = lang === "en" ? "हिंदी" : "English";
+    }
+
+    document.getElementById("langToggle").addEventListener("click", () => {
+      currentLang = currentLang === "en" ? "hi" : "en";
+      applyLang(currentLang);
+    });
+
+    applyLang("en");
+
+    // Fade-in scroll animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    window.addEventListener('scroll', () => {
+      fadeElements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        if (position < screenPosition) el.classList.add('show');
+      });
+    });
+  </script>
+</body>
+</html>

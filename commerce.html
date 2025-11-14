@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Commerce Stream After 10th | Career & Subjects Guide</title>
+  <meta name="description" content="Guide to choosing Commerce after 10th — subjects, career paths, boards and why commerce is a strong choice." />
+  <style>
+    :root{--bg:#f8fff6;--card:#ffffff;--accent:#1460b1;--muted:#1e4c8d;--maxw:1000px;--radius:12px}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:linear-gradient(180deg,#fff 0%,var(--bg)100%);color:#0f1724;margin:0;padding:28px;display:flex;justify-content:center}
+    .wrap{max-width:var(--maxw);width:100%}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+    .logo{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#06b6d4);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+    h1{font-size:26px;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    nav.toc{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+    nav.toc a{background:var(--card);padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--accent);border:1px solid rgba(14,165,164,0.12);font-weight:600;font-size:13px}
+    main{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(15,23,42,0.06)}
+    section{margin-bottom:18px}
+    h2{font-size:18px;margin:0 0 8px}
+    h3{font-size:15px;margin:8px 0}
+    ul{margin:8px 0 8px 20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:10px}
+    .lang-btn{background:var(--accent);color:#fff;border:none;padding:9px 16px;border-radius:10px;cursor:pointer;font-weight:600;margin:10px 0;display:block}
+    footer{font-size:13px;color:var(--muted);margin-top:12px}
+    @media (max-width:600px){body{padding:16px}h1{font-size:20px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">Comm</div>
+      <div>
+        <h1 id="title">Commerce Stream After 10th</h1>
+        <p class="lead" id="subtitle">Understand what Commerce offers — subjects, career paths, boards available and why it's a strong choice after 10th.</p>
+      </div>
+    </header>
+
+    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">हिंदी में देखें</button>
+
+    <nav class="toc" aria-label="Quick links" id="toc">
+      <a href="#intro">Introduction</a>
+      <a href="#why">Why Commerce</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#boards">Boards</a>
+      <a href="#career">Careers</a>
+      <a href="#conclusion">Conclusion</a>
+    </nav>
+
+    <main id="content"></main>
+  </div>
+
+  <script>
+    const content = {
+      en: {
+        title: "Commerce Stream After 10th",
+        subtitle: "Understand what Commerce offers — subjects, career paths, boards available and why it's a strong choice after 10th.",
+        btn: "हिंदी में देखें",
+        toc: ["Introduction","Why Commerce","Subjects","Boards","Careers","Conclusion"],
+        sections: [
+          {
+            id: "intro",
+            h2: "Introduction",
+            p: "Commerce is defined as the exchange of goods and services among individuals and business entities. In academics, Commerce is considered one of the most popular streams alongside Science and Arts. Commerce deals with accounting, financial transactions, business operations and merchandising. It plays a significant role in the economic development of a nation by facilitating trade and financial management."
+          },
+          {
+            id: "why",
+            h2: "Why Commerce After 10th?",
+            p: "The diversity offered by Commerce attracts many Class 10 students. It provides a flexible pathway to professional courses and a strong foundation for business-related careers. Example: after Class 12 you can pursue a B.Com degree and later specialise through postgraduate or professional qualifications like CA, CS, CMA or CFA. Commerce acts as a gateway to careers in finance, accounting, banking, management, teaching and more — making it a practical and rewarding choice."
+          },
+          {
+            id: "subjects",
+            h2: "List of Subjects for Commerce Students",
+            p: `<p>Commerce subjects for Class 11 and 12 usually include a mix of business, economic and quantitative topics. Common subjects are:</p>
+            <div class="grid">
+              <div class="card"><h3>Accountancy</h3><p>Practice of recording, classifying and reporting business transactions. Includes financial accounting, preparation of statements and analysis.</p></div>
+              <div class="card"><h3>Business Studies</h3><p>Study of business functions such as finance, marketing and management. Builds understanding of how businesses operate.</p></div>
+              <div class="card"><h3>Economics</h3><p>Study of scarcity, production, and consumption—helps understand policy and growth.</p></div>
+              <div class="card"><h3>Informatics Practices</h3><p>Focuses on software, networking concepts and coding basics useful in business data handling.</p></div>
+              <div class="card"><h3>Mathematics</h3><p>Used in accounting, finance, forecasting and data analysis.</p></div>
+              <div class="card"><h3>Statistics for Economics</h3><p>Study of data collection, interpretation and presentation supporting decision-making.</p></div>
+            </div>`
+          },
+          {
+            id: "boards",
+            h2: "Commerce Stream Boards Available in India",
+            p: "<ul><li>CBSE — Central Board of Secondary Education</li><li>ICSE — Indian Certificate of Secondary Education</li><li>IB — International Baccalaureate</li><li>State Boards</li></ul>"
+          },
+          {
+            id: "career",
+            h2: "Career Paths After Commerce",
+            p: "<ul><li><strong>Chartered Accountancy (CA)</strong> — auditing, taxation, financial advisory</li><li><strong>Company Secretary (CS)</strong> — corporate governance, legal compliance</li><li><strong>Cost & Management Accountant (CMA)</strong> — cost control, financial planning</li><li><strong>Chartered Financial Analyst (CFA)</strong> — investment analysis</li><li>Banking, Insurance, Financial Services</li><li>Teaching, B.Com, MBA, M.Com</li></ul>"
+          },
+          {
+            id: "conclusion",
+            h2: "Conclusion",
+            p: "Commerce is a practical and versatile stream that builds strong analytical and financial skills. With a combination of quantitative subjects and business knowledge, commerce students are well-prepared for successful careers."
+          }
+        ]
+      },
+
+      hi: {
+        title: "10वीं के बाद कॉमर्स स्ट्रीम",
+        subtitle: "जानें कि कॉमर्स में क्या-क्या शामिल है — विषय, करियर विकल्प, बोर्ड्स और यह एक समझदारी भरा चुनाव क्यों है।",
+        btn: "View in English",
+        toc: ["परिचय","क्यों चुनें कॉमर्स","विषय","बोर्ड्स","करियर","निष्कर्ष"],
+        sections: [
+          {
+            id: "intro",
+            h2: "परिचय",
+            p: "कॉमर्स का अर्थ वस्तुओं और सेवाओं के आदान-प्रदान से है। यह विज्ञान और कला की तरह ही एक लोकप्रिय शैक्षणिक धारा है। कॉमर्स में लेखांकन, वित्तीय लेनदेन, व्यवसाय संचालन और विपणन का अध्ययन शामिल है। यह राष्ट्र के आर्थिक विकास में महत्वपूर्ण भूमिका निभाता है।"
+          },
+          {
+            id: "why",
+            h2: "10वीं के बाद कॉमर्स क्यों?",
+            p: "कॉमर्स की विविधता इसे 10वीं के बाद छात्रों के लिए आकर्षक बनाती है। यह व्यावसायिक कोर्स और बिजनेस करियर के लिए एक मजबूत आधार देता है। उदाहरण: 12वीं के बाद आप बी.कॉम कर सकते हैं और फिर CA, CS, CMA या CFA जैसी पेशेवर डिग्रियाँ प्राप्त कर सकते हैं। कॉमर्स वित्त, लेखा, बैंकिंग, प्रबंधन और शिक्षण में करियर के अवसर खोलता है।"
+          },
+          {
+            id: "subjects",
+            h2: "कॉमर्स के मुख्य विषय",
+            p: `<p>कक्षा 11 और 12 के लिए कॉमर्स में व्यापार, अर्थशास्त्र और गणितीय विषयों का मिश्रण होता है। प्रमुख विषय इस प्रकार हैं:</p>
+            <div class="grid">
+              <div class="card"><h3>लेखांकन (Accountancy)</h3><p>व्यवसायिक लेनदेन का रिकॉर्ड रखना और वित्तीय विवरण तैयार करना।</p></div>
+              <div class="card"><h3>व्यवसाय अध्ययन (Business Studies)</h3><p>वित्त, विपणन, संगठन और प्रबंधन के सिद्धांतों का अध्ययन।</p></div>
+              <div class="card"><h3>अर्थशास्त्र (Economics)</h3><p>संसाधनों के उपयोग, उत्पादन और उपभोग का अध्ययन।</p></div>
+              <div class="card"><h3>इन्फॉरमैटिक्स प्रैक्टिसेज</h3><p>सॉफ्टवेयर और नेटवर्किंग के मूल सिद्धांतों का ज्ञान।</p></div>
+              <div class="card"><h3>गणित (Mathematics)</h3><p>वित्तीय विश्लेषण, पूर्वानुमान और सांख्यिकी में प्रयोग।</p></div>
+              <div class="card"><h3>सांख्यिकी (Statistics)</h3><p>डेटा संग्रह, विश्लेषण और प्रस्तुतीकरण का अध्ययन।</p></div>
+            </div>`
+          },
+          {
+            id: "boards",
+            h2: "भारत में कॉमर्स स्ट्रीम के बोर्ड्स",
+            p: "<ul><li>CBSE — सेंट्रल बोर्ड ऑफ सेकेंडरी एजुकेशन</li><li>ICSE — इंडियन सर्टिफिकेट ऑफ सेकेंडरी एजुकेशन</li><li>IB — इंटरनेशनल बैकालॉरेट</li><li>राज्य बोर्ड्स</li></ul>"
+          },
+          {
+            id: "career",
+            h2: "कॉमर्स के बाद करियर विकल्प",
+            p: "<ul><li><strong>चार्टर्ड अकाउंटेंसी (CA)</strong> — ऑडिट, टैक्सेशन, वित्तीय सलाह</li><li><strong>कंपनी सेक्रेटरी (CS)</strong> — कॉर्पोरेट प्रशासन</li><li><strong>कॉस्ट एंड मैनेजमेंट अकाउंटेंट (CMA)</strong> — लागत नियंत्रण</li><li><strong>चार्टर्ड फाइनेंशियल एनालिस्ट (CFA)</strong> — निवेश विश्लेषण</li><li>बैंकिंग, बीमा, वित्तीय सेवाएँ</li><li>शिक्षण, बी.कॉम, एम.कॉम, एमबीए</li></ul>"
+          },
+          {
+            id: "conclusion",
+            h2: "निष्कर्ष",
+            p: "कॉमर्स एक व्यावहारिक और बहुमुखी स्ट्रीम है जो विश्लेषणात्मक और वित्तीय कौशल विकसित करती है। यह छात्रों को पेशेवर सफलता के लिए तैयार करती है।"
+          }
+        ]
+      }
+    };
+
+    let lang = "en";
+
+    function render() {
+      const d = content[lang];
+      document.getElementById("title").innerText = d.title;
+      document.getElementById("subtitle").innerText = d.subtitle;
+      document.getElementById("langBtn").innerText = d.btn;
+      const toc = document.getElementById("toc");
+      const links = toc.querySelectorAll("a");
+      d.toc.forEach((txt,i)=>links[i].innerText = txt);
+
+      document.getElementById("content").innerHTML = d.sections.map(s => `
+        <section id="${s.id}">
+          <h2>${s.h2}</h2>
+          <p>${s.p}</p>
+        </section>
+      `).join("");
+    }
+
+    function toggleLanguage(){
+      lang = lang === "en" ? "hi" : "en";
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>
